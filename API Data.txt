@@ -1,0 +1,27 @@
+https://open.er-api.com/v6/latest/USD
+
+
+Parent Folder: 1nSAtObXym7LHo2A2j4UdvGwrjfNg7eJM
+API Key: AIzaSyCFkG3DFayI3ZDSpx8aQc33Hfi6tESMQgA
+Client ID: 434620373238-u3kpgfnsqse3e3g9p6v48jn7tdn6g871.apps.googleusercontent.com
+Client Secret: yrQ_8a6ZSYSW30aN4H9PdERn
+Auth Code: 4/0ASVgi3LQDvWoSw8Mn90ShcJUlC90kCcMqKm5x0BeRtHmjK3mDf8lcEfNfYXC2ucrF-ybvw
+Ref Token: 1//04CjYqXaY-SOaCgYIARAAGAQSNwF-L9Ir7s0Bb25vw6tYToqHhFeA5jJQcXJv5uzQFlxHbjI_dIoSVUxWtU54e4vQ6Y9bMQf6Fgg
+Acc Token: ya29.a0AXeO80TKfo8GVV4YkI0oeM5xzZBDC6ysvkwz4Om6veyhwj4avDd_53GmydaQk9Obxh0H1OKwoX_E5K3MIucEqyDAruVHhhHyBUhFia89Bza9h9OeQIbir0_3xjS0dj8-Y5M-HJAtMvDDeATC6zlgDwQqjD18ANvWyt57J5EhaCgYKAWASARESFQHGX2Mi75VU2DuZ0WTONjggVIyL7A0175
+
+
+
+
+Need All Category Image by ID.jpg (All Prev Data Pending)
+SEO Data generation (ChatGPT Pending)
+Set Upload Folder Size (Max Limit) (in Product.db)
+Needs to change file upload limits on server ini
+cron 1h for file uploads & delete of products based on pre+1 day which have no files. (Add to cronjob)
+show product page on front (link list product view).. same for blog
+remove 10mb limit from product page & 50mb from product.db
+Job (Pre defined text)
+increase view & wishlist hourly
+
+
+
+on wish & view increase count

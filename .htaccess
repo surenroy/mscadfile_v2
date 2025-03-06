@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Set the domain name of your website
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^https?://(www\.)?yourdomain\.com [NC]
+#RewriteCond %{HTTP_REFERER} !^https?://(subdomain\.)?yourdomain\.com [NC]
+#RewriteCond %{HTTP_REFERER} !^https?://(yourdomain\.com|www\.yourdomain\.com)/ [NC]
+
+
+# Allow requests with no referer (direct access) //localhost
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://localhost [NC]
+RewriteCond %{HTTP_REFERER} !^http://127\.0\.0\.1 [NC]
+
+
+
+# Block access to specific file types if the referer is not allowed
+RewriteRule \.(jpeg|jpg|png|gif|json|pdf)$ - [F,NC,L]
