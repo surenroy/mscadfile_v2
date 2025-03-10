@@ -1,0 +1,21 @@
+Test Card Details for Razorpay
+
+1. VISA Card (Successful Transaction)
+Card Number: 4111 1111 1111 1111
+Expiry Date: Any future date (e.g., 12/29)
+CVV: 123
+OTP: 123456
+
+
+2. MasterCard (Successful Transaction)
+Card Number: 5555 5555 5555 4444
+Expiry Date: Any future date (e.g., 12/29)
+CVV: 123
+OTP: 123456
+
+
+3. Failed Transaction (For Testing Failure Scenarios)
+Card Number: 5105 1051 0510 5100
+Expiry Date: Any future date (e.g., 12/29)
+CVV: 123
+OTP: 000000 (Fails payment)

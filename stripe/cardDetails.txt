@@ -1,0 +1,9 @@
+Visa (Successful Payment)	4242 4242 4242 4242	Any future date (e.g., 12/34)	Any 3-digit CVV	Standard approval
+
+Visa (3D Secure Required)	4000 0025 0000 3155	Any future date	Any 3-digit CVV	Triggers 3D Secure authentication
+
+Card Declined	4000 0000 0000 0002	Any future date	Any 3-digit CVV	Payment will be declined
+
+Insufficient Funds	4000 0000 0000 9995	Any future date	Any 3-digit CVV	Declined due to insufficient funds
+
+Incorrect CVC	4000 0000 0000 0127	Any future date	Any incorrect CVV	Declined due to incorrect CVV
