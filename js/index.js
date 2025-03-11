@@ -233,7 +233,7 @@ function add_cart(id) {
             if(data.status==1){
                 wish_cart();
             }else{
-                alert_js('Login First','Error');
+                alert_js(data.msg,'Error');
             }
         }
     }).responseText;
@@ -254,6 +254,7 @@ function remove_cart(id) {
         success  :function(data){
             if(data.status==1){
                 wish_cart();
+                location.reload();
             }else{
                 alert_js('Login First','Error');
             }
@@ -523,31 +524,7 @@ function loadWishList(){
     }).responseText;
 }
 
-function loadCartList(){
-    $.ajax({
-        url :site_url+'login_db.php',
-        type:'POST',
-        dataType:'json',
-        data :{
-            'action':'loadCartList'
-        },
-        beforeSend:function(){
-            $('#product_show_cart').html('');
-        },
-        async: false,
-        success  :function(data){
-            if(data.status==1){
-                $('#product_show_cart').html(data.html);
-                currency();
-            }
-        }
-    }).responseText;
-}
 
-
-function buy_now(){
-    window.location.href = site_url+'cart_final.php';
-}
 
 function toggleModal() {
     const modal = document.getElementById("popupForm");
@@ -673,6 +650,10 @@ function changeCurrency(currency, flagUrl, type) {
     }
     Cookies.set('user_currency', type);
     updateCurrencyDisplay(currency, flagUrl);
+
+    if (window.location.href.includes("cart.php")) {
+        location.reload();
+    }
 }
 
 function checkWidth() {

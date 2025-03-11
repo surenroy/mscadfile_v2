@@ -30,6 +30,7 @@ if (isset($_GET['slug'])) {
 
 
 
+
     $id=$my_arr[0]['id'];
     $name=$my_arr[0]['name'];
     $slug=$my_arr[0]['slug'];
@@ -184,7 +185,9 @@ if (isset($_GET['slug'])) {
 
 
 
-
+    $sql="UPDATE `products` SET `view`=`view`+1 WHERE `id`='$id'";
+    $query = $pdoconn->prepare($sql);
+    $query->execute();
 
 } else {
     header('Location: ../index.php');

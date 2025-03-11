@@ -1034,7 +1034,7 @@ switch ($action) {
 
 
                 $html .= '<tr>
-                <td>'.$name.'</td>
+                <td><a href="'.$site_url.'product/product.php?slug='.$slug.'" class="text-decoration-none fw-bold text-dark">'.$name.'</a></td>
                 <td><img src="product_images/'.$feature_image.'" class="pr_img" alt="'.$slug.'"></td>
                 <td>
                     <del class="text-black-50 inr_price"><small>₹'.$inr_price.'</small></del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
@@ -1055,126 +1055,6 @@ switch ($action) {
         break;
 
 
-    case 'loadCartList':
-        $html='<tr>
-                <td colspan="6" style="text-align: center;">Login First</td>
-            </tr>';
-
-        if(isset($_SESSION["user_id"])) {
-            $html='';
-            $user_id = $_SESSION["user_id"];
-
-            $sql="SELECT `cart` FROM `wishlist_cart` WHERE `user_id`='$user_id' AND `cart` IS NOT NULL";
-            $query = $pdoconn->prepare($sql);
-            $query->execute();
-            $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
-            $cartlist=array();
-            foreach($my_arr as $val){
-                array_push($cartlist,$val['cart']);
-            }
-
-            $final_cart=implode(',',$cartlist);
-
-            $sql="SELECT `id`,`name` FROM `categories`";
-            $query = $pdoconn->prepare($sql);
-            $query->execute();
-            $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
-            $categoryArray = [];
-            foreach ($my_arr as $category) {
-                $categoryArray[$category['id']] = $category['name'];
-            }
-
-            $sql="SELECT `id`,`name`,`slug`,`currency`,`price`,`offer`,`category_id`,`featured_image`,
-        DATE_FORMAT(`created_at`,'%d-%m-%Y %H:%i') AS created_at FROM `products`
-         WHERE `active`=1 AND `pending`=0 AND `drive_pending`=0 
-           AND `id` IN ($final_cart) ORDER BY `active` DESC, `created_at` DESC";
-            $query = $pdoconn->prepare($sql);
-            $query->execute();
-            $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            $non_delete_cart=array();
-            $i=1;
-
-            $usd_price_total=$inr_price_total=0;
-            $usd_offer_total=$inr_offer_total=0;
-            foreach ($my_arr as $val) {
-                $id=$val['id'];
-                array_push($non_delete_cart,$id);
-                $name=$val['name'];
-                $slug=$val['slug'];
-                $currency=$val['currency'];
-                $price=$val['price'];
-                $offer=$val['offer'];
-                $category_id=$val['category_id'];
-                $created_at=$val['created_at'];
-                $feature_image=$val['featured_image'];
-                $usd_rate = $_COOKIE["usd"];
-                if($currency==1){
-                    $inr_price=$price;
-                    $inr_offer=$offer;
-                    $usd_price=round(($price*$usd_rate),2);
-                    $usd_offer=round(($offer*$usd_rate),2);
-                }else{
-                    $inr_price=round(($price/$usd_rate),2);
-                    $inr_offer=round(($offer/$usd_rate),2);
-                    $usd_price=$price;
-                    $usd_offer=$offer;
-                }
-
-
-                $usd_price_total=$usd_price_total+$usd_price;
-                $inr_price_total=$inr_price_total+$inr_price;
-                $usd_offer_total=$usd_offer_total+$usd_offer;
-                $inr_offer_total=$inr_offer_total+$inr_offer;
-
-                $html .= '<tr>
-                <td>'.$name.'</td>
-                <td><img src="product_images/'.$feature_image.'" class="pr_img" alt="'.$slug.'"></td>
-                <td>
-                    <del class="text-black-50 inr_price"><small>₹'.$inr_price.'</small></del> <del class="text-black-50 usd_price"><small>$'.$usd_price.'</small></del>
-                </td>
-                <td>
-                    <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span> <span class="text-danger fw-bold usd_price">$'.$usd_offer.'</span>
-                </td>
-                <td>'.$categoryArray[$category_id].'</td>
-                <td><button class="btn btn-sm btn-danger" onclick="remove_wish('.$id.')"><i class="fa-solid fa-trash"></i></button></td>
-            </tr>';
-
-            }
-
-            if(count($my_arr)>0){
-                $savings_percentage = (($inr_price_total - $inr_offer_total) / $inr_price_total) * 100;
-                $savings_percentage=round($savings_percentage,0);
-
-
-                $html .= '<tr>
-                <td colspan="2" class="bg-light fw-bold">Total:</td>
-                <td class="bg-light fw-bold">
-                    <del class="text-black-50 inr_price"><small>₹'.$inr_price_total.'</small></del> <del class="text-black-50 usd_price"><small>$'.$usd_price_total.'</small></del>
-                </td>
-                <td class="bg-light fw-bold text-warning">
-                    <span class="text-danger fw-bold inr_price">₹'.$inr_offer_total.'</span> <span class="text-danger fw-bold usd_price">$'.$usd_offer_total.'</span>
-                </td>
-                <td class="bg-success fw-bold text-white">Save: '.$savings_percentage.'%</td>
-                <td class="bg-dark fw-bold text-white" style="cursor: pointer;" onclick="buy_now()">Buy Now</td>
-            </tr>';
-            }
-
-            if(count($non_delete_cart)>0){
-                $delete_cart=implode(',',$non_delete_cart);
-                $sql="DELETE FROM `wishlist_cart` WHERE `user_id`='$user_id' AND `cart` NOT IN ($delete_cart)";
-                $query = $pdoconn->prepare($sql);
-                $query->execute();
-            }
-
-        }
-
-
-
-
-        $my_arr = array('status' => 1, 'msg' => '', 'html'=> $html);
-        echo json_encode($my_arr);
-        break;
 
 
 
@@ -1222,11 +1102,19 @@ switch ($action) {
                 $query = $pdoconn->prepare($sql);
                 $query->execute();
 
+                $sql="UPDATE `products` SET `view`=`view`+1,`wish`=`wish`+1 WHERE `id`='$id'";
+                $query = $pdoconn->prepare($sql);
+                $query->execute();
+
                 $sql="DELETE FROM wishlist_cart WHERE id NOT IN (SELECT * FROM (SELECT MIN(id) FROM wishlist_cart GROUP BY user_id, wishlist, cart) AS temp)";
                 $query = $pdoconn->prepare($sql);
                 $query->execute();
             }else{
                 $sql="DELETE FROM wishlist_cart WHERE user_id='$user_id' AND `wishlist`='$id'";
+                $query = $pdoconn->prepare($sql);
+                $query->execute();
+
+                $sql="UPDATE `products` SET `view`=`view`+1 WHERE `id`='$id'";
                 $query = $pdoconn->prepare($sql);
                 $query->execute();
             }
@@ -1262,22 +1150,55 @@ switch ($action) {
     case 'add_cart':
         $id=$_POST["id"];
         $status=0;
+        $msg='';
 
         if(isset($_SESSION["user_id"])){
             $user_id=$_SESSION["user_id"];
 
-            $sql="INSERT INTO `wishlist_cart` (`user_id`,`cart`) VALUES ('$user_id','$id')";
+            $my_products=array();
+            $sql="SELECT `id` FROM `products` WHERE `user_id`='$user_id'";
             $query = $pdoconn->prepare($sql);
             $query->execute();
+            $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($my_arr as $item) {
+                array_push($my_products, $item['id']);
+            }
 
-            $sql="DELETE FROM wishlist_cart WHERE id NOT IN (SELECT * FROM (SELECT MIN(id) FROM wishlist_cart GROUP BY user_id, wishlist, cart) AS temp)";
-            $query = $pdoconn->prepare($sql);
-            $query->execute();
-            $status=1;
+
+            if(in_array($id, $my_products)){
+                $status=0;
+                $msg='You Cannot Put Your Product in Cart.';
+            }else{
+                $my_purchase=array();
+                $sql="SELECT `product_id` FROM `sales` WHERE `buyer_id`='$user_id'";
+                $query = $pdoconn->prepare($sql);
+                $query->execute();
+                $my_arr_p = $query->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($my_arr_p as $item) {
+                    array_push($my_purchase, $item['product_id']);
+                }
+
+                if(in_array($id, $my_products)){
+                    $status=0;
+                    $msg='Already Purchased By You.';
+                }else{
+                    $sql="INSERT INTO `wishlist_cart` (`user_id`,`cart`) VALUES ('$user_id','$id')";
+                    $query = $pdoconn->prepare($sql);
+                    $query->execute();
+
+                    $sql="DELETE FROM wishlist_cart WHERE id NOT IN (SELECT * FROM (SELECT MIN(id) FROM wishlist_cart GROUP BY user_id, wishlist, cart) AS temp)";
+                    $query = $pdoconn->prepare($sql);
+                    $query->execute();
+                    $status=1;
+                }
+            }
+        }else{
+            $status=0;
+            $msg='Login First..';
         }
 
 
-        $my_arr = array('status' => $status);
+        $my_arr = array('status' => $status, 'msg'=>$msg);
         echo json_encode($my_arr);
         break;
 

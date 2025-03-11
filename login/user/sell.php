@@ -17,69 +17,21 @@ if($is_saller!=1){
 <div id="newProductDiv" class="full-screen d-flex text-white d-none px-2 col-12 justify-content-between flex-wrap">
     <div class="container-fluid pt-4 pb-4 text-dark rounded">
         <div class="table-responsive">
-            <table class="table table-bordered table-hover table_center">
+            <table class="table table-bordered table-hover table_center" id="sell_table">
                 <thead class="table-dark">
                 <tr>
                     <th>Date & Time</th>
-                    <th>OrderID</th>
-                    <th>Payment ID</th>
                     <th>Product</th>
                     <th>Buyer</th>
                     <th>Image</th>
                     <th>INR</th>
                     <th>USD</th>
+                    <th>Payment ID</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="sell_data">
 
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td>Order 123</td>
-                    <td>Pay 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td>
-                        <img src="<?php echo $site_url; ?>images/ganesh.png" class="or_img" alt="Mirror">
-                    </td>
-                    <td>30.55</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td>Order 123</td>
-                    <td>Pay 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td>
-                        <img src="<?php echo $site_url; ?>images/ganesh.png" class="or_img" alt="Mirror">
-                    </td>
-                    <td></td>
-                    <td>40.33</td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td>Order 123</td>
-                    <td>Pay 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td>
-                        <img src="<?php echo $site_url; ?>images/ganesh.png" class="or_img" alt="Mirror">
-                    </td>
-                    <td></td>
-                    <td>40.33</td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td>Order 123</td>
-                    <td>Pay 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td>
-                        <img src="<?php echo $site_url; ?>images/ganesh.png" class="or_img" alt="Mirror">
-                    </td>
-                    <td></td>
-                    <td>40.33</td>
-                </tr>
+
 
                 </tbody>
             </table>
@@ -113,7 +65,7 @@ if($is_saller!=1){
                         <th>USD</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="payment_summary">
                     <tr>
                         <td>70.99</td>
                         <td>60.45</td>
@@ -214,36 +166,9 @@ if($is_saller!=1){
 
 
 
-<script>
-    $(document).ready(function(){
-        showDiv(1);
-    });
-
-    function showDiv(id) {
-        if(id==1){
-            $('#newProductDiv').removeClass('d-none');
-            $('.btn1').addClass('btn-primary');
-            $('.btn2').addClass('btn-outline-primary');
-            $('.btn1').removeClass('btn-outline-primary');
-            $('.btn2').removeClass('btn-primary');
-            $('#productListDiv').addClass('d-none');
-        }else{
-            $('#newProductDiv').addClass('d-none');
-            $('#productListDiv').removeClass('d-none');
-            $('.btn2').addClass('btn-primary');
-            $('.btn1').addClass('btn-outline-primary');
-            $('.btn2').removeClass('btn-outline-primary');
-            $('.btn1').removeClass('btn-primary');
-        }
-    }
 
 
-</script>
-
-
-
-
-
+<script src="<?php echo $site_url; ?>login/user/js/sell.js?v=<?php echo $ver; ?>"></script>
 
 
 <?php

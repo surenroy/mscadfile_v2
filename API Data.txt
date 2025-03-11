@@ -23,5 +23,3 @@ Job (Pre defined text)
 increase view & wishlist hourly
 
 
-
-on wish & view increase count
