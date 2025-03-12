@@ -509,9 +509,9 @@ switch ($action) {
         $html='';
 
         $sql="SELECT * FROM ((SELECT `id`, `name`, `slug`, `feature`, `created_at`,`featured_image` FROM `products`
-                    WHERE `active` = 1 AND `feature` = 1 ORDER BY `created_at` DESC LIMIT 3) UNION ALL
+                    WHERE `active` = 1 AND `feature` = 1 AND `pending`=0 AND `drive_pending`=0 ORDER BY `created_at` DESC LIMIT 3) UNION ALL
                                     (SELECT `id`, `name`, `slug`, `feature`, `created_at`,`featured_image` FROM `products`
-                    WHERE `active` = 1 AND `feature` = 0 ORDER BY `created_at` DESC LIMIT 10)) AS combined_results ORDER BY RAND()";
+                    WHERE `active` = 1 AND `feature` = 0 AND `pending`=0 AND `drive_pending`=0 ORDER BY `created_at` DESC LIMIT 10)) AS combined_results ORDER BY RAND()";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
