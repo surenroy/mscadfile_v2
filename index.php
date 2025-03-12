@@ -107,7 +107,7 @@ include_once ('header.php');
         <div class="col-12 d-flex justify-content-around flex-row flex-wrap" id="product_list">
 
             <?php
-                $sql="SELECT COUNT(`id`) AS cnt FROM `products` WHERE `active`=1";
+                $sql="SELECT COUNT(`id`) AS cnt FROM `products` WHERE `active`=1 AND `pending`=0 AND `drive_pending`=0";
                 $query = $pdoconn->prepare($sql);
                 $query->execute();
                 $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);

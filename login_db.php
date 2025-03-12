@@ -421,7 +421,7 @@ switch ($action) {
         }
 
 
-        $sql="SELECT COUNT(`id`) AS cnt FROM `products` WHERE `active`=1";
+        $sql="SELECT COUNT(`id`) AS cnt FROM `products` WHERE `active`=1 AND `pending`=0 AND `drive_pending`=0";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -430,7 +430,7 @@ switch ($action) {
 
 
 
-        $sql="SELECT `id`,`name`,`slug`,`currency`,`price`,`offer`,`featured_image`,`category_id`,`view`,`wish` FROM `products` WHERE `active`=1 ORDER BY `created_at` DESC,`view` DESC,`wish` DESC LIMIT $limit OFFSET $offset";
+        $sql="SELECT `id`,`name`,`slug`,`currency`,`price`,`offer`,`featured_image`,`category_id`,`view`,`wish` FROM `products` WHERE `active`=1 AND `pending`=0 AND `drive_pending`=0 ORDER BY `created_at` DESC,`view` DESC,`wish` DESC LIMIT $limit OFFSET $offset";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -509,9 +509,9 @@ switch ($action) {
         $html='';
 
         $sql="SELECT * FROM ((SELECT `id`, `name`, `slug`, `feature`, `created_at`,`featured_image` FROM `products`
-                    WHERE `active` = 1 AND `feature` = 1 ORDER BY `created_at` DESC LIMIT 3) UNION ALL
+                    WHERE `active` = 1 AND `feature` = 1 AND `pending`=0 AND `drive_pending`=0 ORDER BY `created_at` DESC LIMIT 3) UNION ALL
                                     (SELECT `id`, `name`, `slug`, `feature`, `created_at`,`featured_image` FROM `products`
-                    WHERE `active` = 1 AND `feature` = 0 ORDER BY `created_at` DESC LIMIT 10)) AS combined_results ORDER BY RAND()";
+                    WHERE `active` = 1 AND `feature` = 0 AND `pending`=0 AND `drive_pending`=0 ORDER BY `created_at` DESC LIMIT 10)) AS combined_results ORDER BY RAND()";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -572,7 +572,7 @@ switch ($action) {
         }
 
 
-        $sql="SELECT COUNT(`id`) AS cnt FROM `products` WHERE `active`=1 AND `feature`=1";
+        $sql="SELECT COUNT(`id`) AS cnt FROM `products` WHERE `active`=1 AND `pending`=0 AND `drive_pending`=0 AND `feature`=1";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -582,7 +582,7 @@ switch ($action) {
 
 
         $sql="SELECT `id`,`name`,`slug`,`currency`,`price`,`offer`,`featured_image`,`category_id`,`view`,`wish` FROM `products` 
-        WHERE `active`=1 AND `feature`=1 ORDER BY `created_at` DESC,`view` DESC,`wish` DESC LIMIT $limit OFFSET $offset";
+        WHERE `active`=1 AND `pending`=0 AND `drive_pending`=0 AND `feature`=1 ORDER BY `created_at` DESC,`view` DESC,`wish` DESC LIMIT $limit OFFSET $offset";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -676,7 +676,7 @@ switch ($action) {
         }
 
 
-        $sql="SELECT COUNT(`id`) AS cnt FROM `products` WHERE `active`=1";
+        $sql="SELECT COUNT(`id`) AS cnt FROM `products` WHERE `active`=1 AND `pending`=0 AND `drive_pending`=0";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -686,7 +686,7 @@ switch ($action) {
 
 
         $sql="SELECT `id`,`name`,`slug`,`currency`,`price`,`offer`,`featured_image`,`category_id`,`view`,`wish` FROM `products` 
-        WHERE `active`=1 ORDER BY `created_at` DESC,`view` DESC,`wish` DESC LIMIT $limit OFFSET $offset";
+        WHERE `active`=1 AND `pending`=0 AND `drive_pending`=0 ORDER BY `created_at` DESC,`view` DESC,`wish` DESC LIMIT $limit OFFSET $offset";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);

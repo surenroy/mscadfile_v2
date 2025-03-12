@@ -1,6 +1,8 @@
 <?php
 include_once ('../header.php');
 
+
+
 if (isset($_GET['slug'])) {
     $slug = $_GET['slug'];
 
@@ -506,7 +508,7 @@ $meta_title=$data['meta_title'];
 
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
 
 <?php
 include_once ('../footer.php');
