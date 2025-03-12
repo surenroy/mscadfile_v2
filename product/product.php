@@ -1,11 +1,13 @@
 <?php
 include_once ('../header.php');
 
+
+
 if (isset($_GET['slug'])) {
     $slug = $_GET['slug'];
 
 
-    $sql="SELECT `id`,`name`,`slug`,`currency`,`price`,`offer`,`feature`,`category_id`,`user_id`,`created_at`,`view`,`wish`,
+    echo $sql="SELECT `id`,`name`,`slug`,`currency`,`price`,`offer`,`feature`,`category_id`,`user_id`,`created_at`,`view`,`wish`,
     `attr_size`,`attr_size_unit`,`attr_weight`,`attr_weight_unit`,`attr_purity`,`attr_purity_unit`,`attr_volume`,
     `attr_volume_unit`,`files`,`featured_image`,`total_space`,`total_files` FROM `products` WHERE `active`=1 
     AND `pending`=0 AND `drive_pending`=0 AND `slug`='$slug'";
