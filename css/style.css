@@ -837,6 +837,12 @@ ul li a:hover {
 
 @media (max-width: 450px) {
     .item-item-big {
+        width: 41%;
+    }
+}
+
+@media (max-width: 320px) {
+    .item-item-big {
         width: 90%;
     }
 }
@@ -979,6 +985,12 @@ ul li a:hover {
 }
 
 @media (max-width: 425px) {
+    .item-item-big-index{
+        min-width: 41vw !important;
+    }
+}
+
+@media (max-width: 325px) {
     .item-item-big-index{
         min-width: 95vw !important;
     }
