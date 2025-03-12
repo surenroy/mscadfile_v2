@@ -3,6 +3,7 @@ include_once ('header.php');
 
 ?>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 
 
 
@@ -15,83 +16,20 @@ include_once ('header.php');
 <div id="newProductDiv" class="full-screen d-flex text-white d-none px-2 col-12 justify-content-between flex-wrap">
     <div class="container-fluid pt-4 pb-4 text-dark rounded">
         <div class="table-responsive">
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover table_center" id="sell_table">
                 <thead class="table-dark">
                 <tr>
                     <th>Date & Time</th>
-                    <th>Order ID</th>
                     <th>Product</th>
                     <th>Buyer</th>
+                    <th>Image</th>
                     <th>INR</th>
                     <th>USD</th>
+                    <th>Payment ID</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="sell_data">
 
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Order 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td>30.55</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Order 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td></td>
-                    <td>40.99</td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Order 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td>30.55</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Order 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td></td>
-                    <td>40.99</td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Order 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td>30.55</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Order 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td></td>
-                    <td>40.99</td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Order 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td>30.55</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>14-02-2025 15:27</td>
-                    <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Order 123</td>
-                    <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-globe"></i></a>Ganesha</td>
-                    <td>#40</td>
-                    <td></td>
-                    <td>40.99</td>
-                </tr>
 
 
                 </tbody>
@@ -104,7 +42,7 @@ include_once ('header.php');
     <div class="container-fluid pt-4 text-dark rounded">
         <div class="table-responsive">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover table_center">
                     <thead class="table-dark">
                     <tr>
                         <th colspan="2">Total Sell</th>
@@ -126,19 +64,7 @@ include_once ('header.php');
                         <th>USD</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>70.99</td>
-                        <td>60.45</td>
-                        <td>10.33</td>
-                        <td>8.55</td>
-                        <td>60.99</td>
-                        <td>50.33</td>
-                        <td>40.33</td>
-                        <td>35.44</td>
-                        <td>10.55</td>
-                        <td>5.66</td>
-                    </tr>
+                    <tbody id="payment_summary">
 
 
                     </tbody>
@@ -153,127 +79,16 @@ include_once ('header.php');
                 <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                     <tr>
-                        <th>Date & Time</th>
+                        <th>Entry On</th>
+                        <th>Paid On</th>
                         <th>User</th>
                         <th>Payment ID</th>
-                        <th>File</th>
+                        <th>Description</th>
                         <th>INR</th>
                         <th>USD</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#50</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#30</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#50</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#30</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#50</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#30</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#50</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#30</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#50</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#30</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#50</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#30</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#50</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td>#30</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
+                    <tbody id="payment_history">
 
 
                     </tbody>
@@ -282,6 +97,9 @@ include_once ('header.php');
         </div>
     </div>
 </div>
+
+
+
 
 <div id="userListDiv" class="full-screen d-flex text-white d-none px-2 col-12 justify-content-between flex-wrap">
     <div class="container-fluid pt-4 text-dark rounded">
@@ -299,7 +117,7 @@ include_once ('header.php');
                         <th colspan="2">Payment</th>
                     </tr>
                     <tr>
-                        <th>User</th>
+                        <th>Name</th>
                         <th>ID</th>
                         <th>INR</th>
                         <th>USD</th>
@@ -315,27 +133,7 @@ include_once ('header.php');
                         <th>USD</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>User 1</td>
-                        <td>#50</td>
-                        <td>70.99</td>
-                        <td>60.45</td>
-                        <td>10.33</td>
-                        <td>8.55</td>
-                        <td>60.99</td>
-                        <td>50.33</td>
-                        <td>40.33</td>
-                        <td>35.44</td>
-                        <td>10.55</td>
-                        <td>5.66</td>
-                        <td>
-                            <button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-indian-rupee-sign"></i></button>
-                        </td>
-                        <td>
-                            <button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-usd"></i></button>
-                        </td>
-                    </tr>
+                    <tbody id="user_payment">
 
 
                     </tbody>
@@ -346,53 +144,48 @@ include_once ('header.php');
 </div>
 
 
-<script>
-    $(document).ready(function(){
-        showDiv(1);
-    });
 
-    function showDiv(id) {
-        if(id==1){
-            $('#newProductDiv').removeClass('d-none');
-            $('#productListDiv').addClass('d-none');
-            $('#userListDiv').addClass('d-none');
-            $('.btn1').addClass('btn-primary');
-            $('.btn1').removeClass('btn-outline-primary');
-            $('.btn2').addClass('btn-outline-primary');
-            $('.btn2').removeClass('btn-primary');
-            $('.btn3').addClass('btn-outline-primary');
-            $('.btn3').removeClass('btn-primary');
-        }else if(id==2){
-            $('#newProductDiv').addClass('d-none');
-            $('#productListDiv').removeClass('d-none');
-            $('#userListDiv').addClass('d-none');
-            $('.btn2').addClass('btn-primary');
-            $('.btn2').removeClass('btn-outline-primary');
-            $('.btn1').addClass('btn-outline-primary');
-            $('.btn1').removeClass('btn-primary');
-            $('.btn3').addClass('btn-outline-primary');
-            $('.btn3').removeClass('btn-primary');
-        }else{
-            $('#newProductDiv').addClass('d-none');
-            $('#productListDiv').addClass('d-none');
-            $('#userListDiv').removeClass('d-none');
-            $('.btn3').addClass('btn-primary');
-            $('.btn3').removeClass('btn-outline-primary');
-            $('.btn2').addClass('btn-outline-primary');
-            $('.btn2').removeClass('btn-primary');
-            $('.btn1').addClass('btn-outline-primary');
-            $('.btn1').removeClass('btn-primary');
-        }
-    }
+<!-- Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="paymentForm" class=" col-12">
+                    <div class="mb-3 col-12">
+                        <label for="paymentDate" class="form-label">Payment Date</label>
+                        <input type="text" class="form-control datepicker form-control-sm col-12 w-100" id="paymentDate" placeholder="Select Date">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="amount" class="form-label">Amount</label>
+                        <input type="number" class="form-control form-control-sm col-12 w-100" id="amount" placeholder="Enter Amount">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="reAmount" class="form-label">Re-enter Amount</label>
+                        <input type="number" class="form-control form-control-sm col-12 w-100" id="reAmount" placeholder="Re-enter Amount">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="paymentID" class="form-label">Payment ID</label>
+                        <input type="text" class="form-control form-control-sm col-12 w-100" id="paymentID" placeholder="Enter a note">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="note" class="form-label">Note</label>
+                        <input type="text" class="form-control form-control-sm col-12 w-100" id="note" placeholder="Enter a note">
+                    </div>
 
-
-</script>
+                    <button id="submit_btn" class="btn btn-primary btn-sm col-12" onclick="submit_payment()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo $site_url; ?>login/user/js/sells.js?v=<?php echo $ver; ?>"></script>
 
 <?php
 include_once ('footer.php');

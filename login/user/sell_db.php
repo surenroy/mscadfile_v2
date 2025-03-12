@@ -79,7 +79,7 @@ ORDER BY sales.created_at DESC";
 
             $html .= '<tr>
                     <td>' . $created_at . '</td>
-                    <td>' . $name . '</td>
+                    <td><a target="_blank" href="'.$site_url.'product/product.php?slug='.$slug.'" class="text-dark text-decoration-none">' . $name . '</a></td>
                     <td>#' . $buyer_id . '</td>
                     <td><img src="' . $site_url . 'product_images/' . $featured_image . '" class="pr_img" alt="' . $slug . '"></td>
                     <td>' . $inr . '</td>
@@ -144,12 +144,52 @@ ORDER BY sales.created_at DESC";
                     <td>' . round(($usd_sells*0.85),2) . '</td>
                      <td>' . $inr_paid . '</td>
                     <td>' . $usd_paid . '</td>
-                    <td>' . round((($inr_sells*0.85)-$inr_paid),2) . '</td>
-                    <td>' . round((($usd_sells*0.85)-$usd_paid),2) . '</td>
+                   <td>' . (round(($inr_sells*0.85),2)-$inr_paid). '</td>
+                    <td>' . (round(($usd_sells*0.85),2)-$usd_paid) . '</td>
                 </tr>';
 
 
-        $my_arr = array('status' => 1, 'msg' => '', 'payment_summary' => $payment_summary);
+
+
+
+        $sql="SELECT `seller`,`amount_inr`,`amount_usd`,
+       DATE_FORMAT(`paid_at`,'%d-%m-%Y') AS paid_at,
+        DATE_FORMAT(`created_at`,'%d-%m-%Y %H:%i') AS created_at,`payment_details`,`unique_id`
+        FROM `seller_payment` WHERE `seller`='$user_id' ORDER BY `created_at` ASC";
+        $query = $pdoconn->prepare($sql);
+        $query->execute();
+        $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
+        $payment_history='';
+        foreach ($my_arr as $val) {
+            $usd=$val['amount_usd'];
+            $inr=$val['amount_inr'];
+            if($inr==0){
+                $inr='';
+            }
+            if($usd==0){
+                $usd='';
+            }
+
+            $payment_history .= '<tr>
+                    <td>' . $val['created_at'] . '</td>
+                    <td>' . $val['paid_at'] . '</td>
+                    <td>#' . $val['seller'] . '</td>
+                    <td>' . $val['unique_id'] . '</td>
+                    <td>' . $val['payment_details'] . '</td>
+                    <td>' . $inr . '</td>
+                    <td>' . $usd . '</td>
+                    
+                </tr>';
+        }
+
+
+
+
+
+
+
+
+        $my_arr = array('status' => 1, 'msg' => '', 'payment_summary' => $payment_summary, 'payment_history'=>$payment_history);
         echo json_encode($my_arr);
         break;
 

@@ -66,18 +66,6 @@ if($is_saller!=1){
                     </tr>
                     </thead>
                     <tbody id="payment_summary">
-                    <tr>
-                        <td>70.99</td>
-                        <td>60.45</td>
-                        <td>10.33</td>
-                        <td>8.55</td>
-                        <td>60.99</td>
-                        <td>50.33</td>
-                        <td>40.33</td>
-                        <td>35.44</td>
-                        <td>10.55</td>
-                        <td>5.66</td>
-                    </tr>
 
 
                     </tbody>
@@ -89,73 +77,20 @@ if($is_saller!=1){
     <div class="container-fluid pt-4 pb-4 text-dark rounded">
         <div class="table-responsive">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover table_center">
+                <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                     <tr>
-                        <th>Date & Time</th>
+                        <th>Entry On</th>
+                        <th>Paid On</th>
+                        <th>User</th>
                         <th>Payment ID</th>
-                        <th>File</th>
+                        <th>Description</th>
                         <th>INR</th>
                         <th>USD</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td></td>
-                        <td>59.99</td>
-                    </tr>
-                    <tr>
-                        <td>14-02-2025 15:27</td>
-                        <td><button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button> Pay 123</td>
-                        <td><a href="" class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-download"></i></a></td>
-                        <td>24.99</td>
-                        <td></td>
-                    </tr>
+                    <tbody id="payment_history">
+
 
                     </tbody>
                 </table>

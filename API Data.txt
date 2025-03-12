@@ -11,7 +11,7 @@ Acc Token: ya29.a0AXeO80TKfo8GVV4YkI0oeM5xzZBDC6ysvkwz4Om6veyhwj4avDd_53GmydaQk9
 
 
 
-
+reg, forget email
 Need All Category Image by ID.jpg (All Prev Data Pending)
 SEO Data generation (ChatGPT Pending)
 Set Upload Folder Size (Max Limit) (in Product.db)

@@ -2233,7 +2233,7 @@ CREATE TABLE `products` (
 /*Data for the table `products` */
 
 insert  into `products`(`id`,`name`,`slug`,`currency`,`price`,`offer`,`feature`,`active`,`category_id`,`user_id`,`created_at`,`view`,`wish`,`pending`,`drive_pending`,`attr_size`,`attr_size_unit`,`attr_weight`,`attr_weight_unit`,`attr_purity`,`attr_purity_unit`,`attr_volume`,`attr_volume_unit`,`files`,`featured_image`,`total_space`,`total_files`) values 
-(1,'Product 1','product-1',1,200,100,1,1,37,202,'2025-03-02 14:55:53',0,0,0,0,'20.33',1,'25.25',1,'1',1,'12.33',1,'1,1,1,0','120267c33bebd659a5_85612588.png','0.3','3/2'),
+(1,'Product 1','product-1',1,200,100,1,1,37,202,'2025-03-02 14:55:53',1,0,0,0,'20.33',1,'25.25',1,'1',1,'12.33',1,'1,1,1,0','120267c33bebd659a5_85612588.png','0.3','3/2'),
 (3,'Product 2','product-2',1,230,110,1,1,43,202,'2025-03-03 22:08:14',0,0,0,0,'20.33',3,'',0,'5',2,'12.38',4,'1,1,0,1','320267c33ccce3a403_70182172.png','0.59','3/1'),
 (5,'Product 3','product-3',2,30,25,0,1,35,202,'2025-03-02 14:55:21',0,0,0,0,'20.33',2,'',0,'4',1,'12.33',1,'1,0,1,0','520267c34d40907114_55474986.png','0.59','2/2'),
 (8,'Product 2','product-2-1',1,230,200,0,1,32,202,'2025-03-03 22:08:00',0,0,0,0,'',0,'',0,'',0,'',0,'1,0,0,0','820267c351e553ae44_94910259.png','0.29','3/2'),
@@ -2345,17 +2345,13 @@ CREATE TABLE `seller_payment` (
   `description` blob DEFAULT NULL,
   `unique_id` blob DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `seller_payment` */
 
 insert  into `seller_payment`(`id`,`seller`,`amount_inr`,`amount_usd`,`paid_at`,`payment_details`,`created_at`,`description`,`unique_id`) values 
-(1,NULL,'8.5',NULL,'2023-07-26','test','2023-07-27 02:29:51',NULL,NULL),
-(2,NULL,NULL,'51.17','2023-09-21','Paid on Paytm. Check your payment history here: https://m.paytm.me/passbook_landing','2023-09-21 21:38:15',NULL,NULL),
-(3,NULL,'587.35',NULL,'2023-12-14','test','2023-12-14 12:34:15',NULL,NULL),
-(4,NULL,'209.95',NULL,'2024-02-03','aaa','2024-02-03 17:50:59',NULL,NULL),
-(5,NULL,'127.5',NULL,'2024-04-24','1239999666','2024-04-24 19:10:06',NULL,NULL),
-(6,NULL,'1.7',NULL,'2024-04-24','1239999666','2024-04-24 19:10:37',NULL,NULL);
+(3,201,'200','0','2025-03-12','note','2025-03-12 15:05:04',NULL,'payid'),
+(4,201,'0','2','2025-03-11','note usd','2025-03-12 15:05:05',NULL,'payidusd');
 
 /*Table structure for table `temp_uploads` */
 
@@ -2400,11 +2396,11 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`name`,`email`,`mobile_no`,`whatsapp_no`,`password`,`is_saller`,`country`,`del_flg`,`created_at`,`payment_id`,`folder_id`,`user_type`,`otp`,`currency`,`pincode`) values 
-(1,'Admin','admin@gmail.com',NULL,'000000','$2y$10$RmzJp8MBt2j/qJqW2kmL3eoLt1RrH054Pn6gqGhIi6OsPtpCXXfAy',0,NULL,0,'2025-02-23 21:10:31','','1mJYxctQ9oD3hGP6zSQua2WTT8dwISo-y',9,NULL,1,NULL),
-(39,'mohasin kayal','admin_user@gmail.com','6305228069','000000','$2y$10$RmzJp8MBt2j/qJqW2kmL3eoLt1RrH054Pn6gqGhIi6OsPtpCXXfAy',0,NULL,0,'2025-02-23 17:44:43','','1lDbhAWaKG-4Ep3ToFCjVSjdAcMZQiR99',2,NULL,1,NULL),
-(40,'tofajul','seller@gmail.com','9640632283','000000','$2y$10$RmzJp8MBt2j/qJqW2kmL3eoLt1RrH054Pn6gqGhIi6OsPtpCXXfAy',1,NULL,0,'2025-02-23 17:44:46','cus_PPSRtubHp7xUHn','13s5EUYsQuOorkUGAXnOCvPezAhh6vLcs',0,NULL,1,NULL),
-(200,'aaaa','buyer@gmail.com','1111111111','000000','$2y$10$RmzJp8MBt2j/qJqW2kmL3eoLt1RrH054Pn6gqGhIi6OsPtpCXXfAy',0,NULL,1,'2025-02-24 21:08:55',NULL,NULL,0,NULL,1,NULL),
-(201,'Arindam Seller','sellera@gmail.com','1111111112','000000','$2y$10$T.9SJhMkjfnKp5.LKZgdPOjFPoJ8ewJAQWlxPeUaSwvp3Q.pfda8S',1,101,0,'2025-02-24 19:48:26','123@upi',NULL,0,NULL,1,'700000'),
+(1,'Admin','admin@gmail.com',NULL,'000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,0,'2025-03-12 15:05:35','','1mJYxctQ9oD3hGP6zSQua2WTT8dwISo-y',9,NULL,1,NULL),
+(39,'mohasin kayal','admin_user@gmail.com','6305228069','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,0,'2025-03-12 15:05:36','','1lDbhAWaKG-4Ep3ToFCjVSjdAcMZQiR99',2,NULL,1,NULL),
+(40,'tofajul','seller@gmail.com','9640632283','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,NULL,0,'2025-03-12 15:05:37','cus_PPSRtubHp7xUHn','13s5EUYsQuOorkUGAXnOCvPezAhh6vLcs',0,NULL,1,NULL),
+(200,'aaaa','buyer@gmail.com','1111111111','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,1,'2025-03-12 15:05:38',NULL,NULL,0,NULL,1,NULL),
+(201,'Arindam Seller','sellera@gmail.com','1111111112','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,101,0,'2025-03-12 15:05:40','123@upi',NULL,0,NULL,1,'700000'),
 (202,'Seller AA','selleraa@gmail.com','5555555555','5555555555','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,NULL,0,'2025-02-27 18:21:04',NULL,'1fG0h7abNdluKZ0OBwTUHx5muFPvc24rE',0,NULL,1,NULL);
 
 /*Table structure for table `wishlist_cart` */

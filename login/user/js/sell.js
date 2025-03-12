@@ -62,11 +62,13 @@ function load_payment(){
         },
         beforeSend:function(){
             $('#payment_summary').html('');
+            $('#payment_history').html('');
         },
         async: false,
         success  :function(data){
             if(data.status==1){
                 $("#payment_summary").html(data.payment_summary);
+                $("#payment_history").html(data.payment_history);
             }else {
                 alert_js(data.msg,'Error Found');
             }

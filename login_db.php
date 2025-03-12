@@ -92,6 +92,7 @@ switch ($action) {
         $query->execute();
 
         $otp=rand(100000, 999999);
+        $otp='999999';
         $_SESSION["otp"] = $otp;
 
         $sql="INSERT INTO `register_user` (`email`,`otp`) VALUES ('$register_email','$otp')";
@@ -279,6 +280,7 @@ switch ($action) {
         $forget_email = strtolower($forget_email);
 
         $otp=rand(100000, 999999);
+        $otp='999999';
         $_SESSION["otp"] = $otp;
 
         $sql="SELECT `id` FROM `users` WHERE `email`='$forget_email'";
