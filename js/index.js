@@ -138,6 +138,18 @@ $(document).ready(function () {
         updateMainImage(prevIndex);
     });
 
+
+    $(".product-main-image").swipe({
+        swipeLeft: function () {
+            $(".next-arrow").trigger("click"); // Trigger next button click on swipe left
+        },
+        swipeRight: function () {
+            $(".prev-arrow").trigger("click"); // Trigger prev button click on swipe right
+        },
+        threshold: 50
+    });
+
+
     // Thumbnail Click Event
     $(".thumb-img").on("click", function () {
         let newIndex = imageSources.indexOf($(this).attr("src"));
