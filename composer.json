@@ -13,6 +13,7 @@
     ],
     "require": {
         "razorpay/razorpay": "2.*",
-        "stripe/stripe-php": "^16.6"
+        "stripe/stripe-php": "^16.6",
+        "phpmailer/phpmailer": "^6.9"
     }
 }

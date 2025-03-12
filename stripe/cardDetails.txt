@@ -1,3 +1,4 @@
+Stripe Test Card details
 Visa (Successful Payment)	4242 4242 4242 4242	Any future date (e.g., 12/34)	Any 3-digit CVV	Standard approval
 
 Visa (3D Secure Required)	4000 0025 0000 3155	Any future date	Any 3-digit CVV	Triggers 3D Secure authentication
