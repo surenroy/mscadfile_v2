@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $seller=$slug;
 
 } else {
-    header('Location: ../index.php');
+    header('Location: ../home.php');
     die();
 }
 

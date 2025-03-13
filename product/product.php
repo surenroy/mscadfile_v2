@@ -16,7 +16,7 @@ if (isset($_GET['slug'])) {
     $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
 
     if(count($my_arr)==0){
-       header('Location: ../index.php');
+       header('Location: ../home.php');
        exit();
     }
 
@@ -192,7 +192,7 @@ if (isset($_GET['slug'])) {
     $query->execute();
 
 } else {
-    header('Location: ../index.php');
+    header('Location: ../home.php');
     exit();
 }
 

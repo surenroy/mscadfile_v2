@@ -10,10 +10,17 @@ if (isset($_GET['slug'])) {
     $query = $pdoconn->prepare($sql);
     $query->execute();
     $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
+    if(count($my_arr)==0){
+        header('Location: ../home.php');
+        exit();
+    }
+
+
+
     $cat=$my_arr[0]['id'];
 
 } else {
-    header('Location: ../index.php');
+    header('Location: ../home.php');
     die();
 }
 

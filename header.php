@@ -59,7 +59,7 @@ if (!isset($_COOKIE['usd'])) {
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-md-6 p-0">
-                <a class="fw-bold store-welcome" href="<?php echo $site_url; ?>index.php">Welcome to MSCAD Store</a>
+                <a class="fw-bold store-welcome" href="<?php echo $site_url; ?>home.php">Welcome to MSCAD Store</a>
             </div>
 
             <div class="col-md-6 p-0">

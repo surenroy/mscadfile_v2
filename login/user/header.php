@@ -49,9 +49,9 @@ if($user_type!=0){
 
 <nav class="navbar navbar-expand-lg shadow-sm position-fixed fixed-top" style="background: linear-gradient(90deg, #000000 30%, #ebb120 100%); padding: 4px 0;">
     <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-start justify-content-start" href="<?php echo $site_url; ?>index.php">
+        <a class="navbar-brand d-flex align-items-start justify-content-start" href="<?php echo $site_url; ?>home.php">
             <img src="<?php echo $site_url; ?>images/logo.webp" alt="mscadfile logo" width="100"  style="max-height: 40px; display: block !important;">
-            <span class="fw-bold store-welcome-mobile" href="<?php echo $site_url; ?>index.php">MSCAD Store</span>
+            <span class="fw-bold store-welcome-mobile" href="<?php echo $site_url; ?>home.php">MSCAD Store</span>
         </a>
 
         <button class="navbar-toggler bg-light p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

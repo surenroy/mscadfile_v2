@@ -44,7 +44,7 @@ switch ($action) {
             $short_description = strip_tags($_POST['short_description']);
             $description = $_POST['description'];
 
-            $uploadDir = '../../blog/';
+            $uploadDir = '../../blog_data/';
 
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
@@ -67,7 +67,9 @@ switch ($action) {
 
 
             if (move_uploaded_file($file['tmp_name'], $uploadFile)) {
-                $sql="INSERT INTO `blog` (`title`,`date_time`,`short_text`,`image`) VALUES ('$title',NOW(),'$short_description','$fileName')";
+                $uniqueSlug = generateUniqueSlug($title);
+
+                $sql="INSERT INTO `blog` (`title`,`slug`,`date_time`,`short_text`,`image`) VALUES ('$title','$uniqueSlug',NOW(),'$short_description','$fileName')";
                 $query = $pdoconn->prepare($sql);
                 $query->execute();
                 $lastInsertId = $pdoconn->lastInsertId();
@@ -79,7 +81,7 @@ switch ($action) {
 
                 $json_data = json_encode($data, JSON_PRETTY_PRINT);
 
-                $folder = '../../blog';
+                $folder = '../../blog_data';
                 $filename = $lastInsertId.'.json';
 
                 if (!is_dir($folder)) {
@@ -164,6 +166,31 @@ switch ($action) {
         echo json_encode($my_arr);
         break;
 }
+
+
+
+function generateUniqueSlug($title) {
+    // Convert title to slug format
+    $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
+
+    // Fetch all existing slugs
+    $sql = "SELECT `slug` FROM `blog`";
+    $query = $pdoconn->prepare($sql);
+    $query->execute();
+    $existingSlugs = $query->fetchAll(PDO::FETCH_COLUMN); // Fetch as a simple array
+
+    // Check uniqueness and append number if needed
+    $originalSlug = $slug;
+    $counter = 1;
+
+    while (in_array($slug, $existingSlugs)) {
+        $slug = $originalSlug . '-' . $counter;
+        $counter++;
+    }
+
+    return $slug;
+}
+
 
 
 

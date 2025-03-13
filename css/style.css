@@ -639,6 +639,7 @@ ul li a:hover {
     color: #333;
     border-radius: 5px;
     margin-right: 5px;
+    margin-top: 2px;
 }
 
 /* File Includes Text */
@@ -728,6 +729,7 @@ ul li a:hover {
     overflow: hidden;
     border-radius: 31px 6px 36px 6px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #dfd8d8;
 }
 
 .item-item-big img {
@@ -958,6 +960,7 @@ ul li a:hover {
     overflow: hidden;
     border-radius: 36px 6px 0px 6px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #dfd8d8;
 }
 
 .item-item-big-index img {
@@ -981,6 +984,12 @@ ul li a:hover {
 @media (max-width: 991px) {
     .item-item-big-index{
         max-width: 41vw;
+    }
+}
+
+@media (max-width: 519px) {
+    .addcart{
+        margin-top: 3px;
     }
 }
 
@@ -1008,3 +1017,7 @@ ul li a:hover {
     }
 }
 
+#blogImage{
+    width: 100%;
+    height: auto;
+}

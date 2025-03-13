@@ -174,7 +174,7 @@ switch ($action) {
        job_data.user_id,
        job_data.description,
        DATE_FORMAT(job_data.created_at,'%d-%m-%Y %H:%i') as created_at,
-       users.name
+       users.id as usrid
         FROM job_data job_data
              LEFT OUTER JOIN users users ON (job_data.user_id = users.id)
         WHERE (job_data.job_id = $id)
@@ -186,13 +186,13 @@ switch ($action) {
         $ids=array();
         foreach ($my_arr as $val) {
             $id=$val['id'];
-            $name=$val['name'];
+            $usrid=$val['usrid'];
             $date_time=$val['created_at'];
             $description=$val['description'];
 
 
             $html.='<tr>
-                            <td>'.$name.'</td>
+                            <td>'.$usrid.'</td>
                             <td>'.$date_time.'</td>
                             <td><button class="btn btn-sm btn-primary" data-ids="'.$description.'" onclick="show_product('.$id.')">View Product</button></td>
                         </tr>';
@@ -287,7 +287,7 @@ switch ($action) {
        job_data.user_id,
        job_data.description,
        DATE_FORMAT(job_data.created_at,'%d-%m-%Y %H:%i') as created_at,
-       users.name
+       users.id as usrid
         FROM job_data job_data
              LEFT OUTER JOIN users users ON (job_data.user_id = users.id)
         WHERE (job_data.job_id = $id)
@@ -299,13 +299,13 @@ switch ($action) {
         $ids=array();
         foreach ($my_arr as $val) {
             $id=$val['id'];
-            $name=$val['name'];
+            $usrid=$val['usrid'];
             $date_time=$val['created_at'];
             $description=$val['description'];
 
 
             $htmlo.='<tr>
-                            <td>'.$name.'</td>
+                            <td>'.$usrid.'</td>
                             <td>'.$date_time.'</td>
                             <td><button class="btn btn-sm btn-dark" data-ids="'.$description.'" onclick="show_product('.$id.')">Show Product</button></td>
                         </tr>';

@@ -2,7 +2,7 @@
 include_once ('header.php');
 
 if($is_saller!=1){
-    header('Location: index.php');
+    header('Location: home.php');
 }
 ?>
 
