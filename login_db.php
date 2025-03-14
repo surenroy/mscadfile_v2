@@ -2,6 +2,7 @@
 ob_start();
 if (!isset($_SESSION)) session_start();
 include_once("connection-pdo.php");
+include_once("smtpMail.php");
 
 if (isset($_REQUEST['action']))
     $action = $_REQUEST['action'];
@@ -87,19 +88,41 @@ switch ($action) {
         $register_email = strip_tags($_POST['register_email']);
         $register_email = strtolower($register_email);
 
+
+        $sql="SELECT `id` FROM `users` WHERE `email`='$register_email'";
+        $query = $pdoconn->prepare($sql);
+        $query->execute();
+        $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
+        if(count($my_arr)>0) {
+            $my_arr = array('status' => 0, 'msg' => 'Email Already Registered..');
+            echo json_encode($my_arr);
+            exit();
+        }
+
+
         $sql="DELETE FROM `register_user` WHERE `email`='$register_email'";
         $query = $pdoconn->prepare($sql);
         $query->execute();
 
         $otp=rand(100000, 999999);
-        $otp='999999';
+
         $_SESSION["otp"] = $otp;
 
         $sql="INSERT INTO `register_user` (`email`,`otp`) VALUES ('$register_email','$otp')";
         $query = $pdoconn->prepare($sql);
         $query->execute();
 
-        //send email with otp //pending
+
+        $response=sendSMTPMail($register_email, 'User', 'OTP For Mscadfile.com', $otp);
+
+        if($response==0){
+            $my_arr = array('status' => 0, 'msg' => 'Email Sending Error..');
+            echo json_encode($my_arr);
+            exit();
+        }
+
+
+
 
         $my_arr = array('status' => 1, 'msg' => '');
         echo json_encode($my_arr);
@@ -280,7 +303,6 @@ switch ($action) {
         $forget_email = strtolower($forget_email);
 
         $otp=rand(100000, 999999);
-        $otp='999999';
         $_SESSION["otp"] = $otp;
 
         $sql="SELECT `id` FROM `users` WHERE `email`='$forget_email'";
@@ -298,7 +320,13 @@ switch ($action) {
             $query->execute();
 
 
-            //send email with otp //pending
+            $response=sendSMTPMail($forget_email, 'User', 'OTP For Mscadfile.com', $otp);
+
+            if($response==0){
+                $my_arr = array('status' => 0, 'msg' => 'Email Sending Error..');
+                echo json_encode($my_arr);
+                exit();
+            }
 
             $my_arr = array('status' => 1, 'msg' => '');
             echo json_encode($my_arr);
@@ -446,7 +474,7 @@ switch ($action) {
             $view=$val['view'];
             $wish=$val['wish'];
 
-            $filepath = $site_url.'product_images/'.$featured_image;
+            $filepath = $site_url.'product_images/'.$featured_image.'?v='.date('H');
 
             if(isset($categoryArray[$category_id])){
                 $category_name=$categoryArray[$category_id]['name'];
@@ -530,7 +558,7 @@ switch ($action) {
                 $feature='New';
             }
 
-            $filepath = $site_url.'product_images/'.$featured_image;
+            $filepath = $site_url.'product_images/'.$featured_image.'?v='.date('H');;
 
             $url=$site_url.'product/product.php?slug='.$slug;
 
@@ -598,7 +626,7 @@ switch ($action) {
             $view=$val['view'];
             $wish=$val['wish'];
 
-            $filepath = $site_url.'product_images/'.$featured_image;
+            $filepath = $site_url.'product_images/'.$featured_image.'?v='.date('H');;
 
             if(isset($categoryArray[$category_id])){
                 $category_name=$categoryArray[$category_id]['name'];
@@ -702,7 +730,7 @@ switch ($action) {
             $view=$val['view'];
             $wish=$val['wish'];
 
-            $filepath = $site_url.'product_images/'.$featured_image;
+            $filepath = $site_url.'product_images/'.$featured_image.'?v='.date('H');;
 
             if(isset($categoryArray[$category_id])){
                 $category_name=$categoryArray[$category_id]['name'];

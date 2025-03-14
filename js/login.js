@@ -77,7 +77,8 @@ function register_otp(){
         return false;
     }
 
-
+    var button = $('#registerOtp');
+    button.prop('disabled', true);
     if (isValidEmail(register_email)) {
         $.ajax({
             url :site_url+'login_db.php',
@@ -94,8 +95,6 @@ function register_otp(){
             async: false,
             success  :function(data){
                 if(data.status==1){
-                    var button = $('#registerOtp');
-                    button.prop('disabled', true);
                     var counter = 120;
                     button.text('OTP Sent. Resend in ' + counter + 's');
                     var interval = setInterval(function(){
@@ -108,7 +107,7 @@ function register_otp(){
                         }
                     }, 1000);
                 }else {
-                    alert_js('Error in OTP Sending Process.','Error Found');
+                    alert_js(data.msg,'Error Found');
                 }
             }
         }).responseText;
@@ -221,6 +220,8 @@ function forget_otp(){
         return false;
     }
 
+    var button = $('#forgotOtp');
+    button.prop('disabled', true);
 
     if (isValidEmail(forget_email)) {
         $.ajax({
@@ -237,8 +238,6 @@ function forget_otp(){
             async: false,
             success  :function(data){
                 if(data.status==1){
-                    var button = $('#forgotOtp');
-                    button.prop('disabled', true);
                     var counter = 120;
                     button.text('OTP Sent. Resend in ' + counter + 's');
                     var interval = setInterval(function(){

@@ -266,7 +266,7 @@ $meta_title=$data['meta_title'];
         <div class="col-md-6">
             <div class="position-relative">
                 <div class="product-main-image">
-                    <img id="mainImage" src="<?php echo $site_url; ?>product_images/<?php echo $feature_image; ?>" class="img-fluid magnify" alt="<?php echo $slug; ?>">
+                    <img id="mainImage" src="<?php echo $site_url; ?>product_images/<?php echo $feature_image.'?v='.date('H'); ?>" class="img-fluid magnify" alt="<?php echo $slug; ?>">
                 </div>
 
                 <a href="#" class="prev-arrow"><i class="fa-solid fa-angle-left"></i></a>
@@ -285,9 +285,9 @@ $meta_title=$data['meta_title'];
                     foreach ($my_arr2 as $val2) {
                         $file_image=$val2['file_image'];
                         if($i==1){
-                            echo '<img src="'.$site_url.'product_images/'.$file_image.'" class="thumb-img me-2 active" onclick="changeImage(this)">';
+                            echo '<img src="'.$site_url.'product_images/'.$file_image.'?v='.date('H').'" class="thumb-img me-2 active" onclick="changeImage(this)">';
                         }else{
-                            echo '<img src="'.$site_url.'product_images/'.$file_image.'" class="thumb-img me-2" onclick="changeImage(this)">';
+                            echo '<img src="'.$site_url.'product_images/'.$file_image.'?v='.date('H').'" class="thumb-img me-2" onclick="changeImage(this)">';
                         }
                         $i=$i+1;
                     }
@@ -467,7 +467,7 @@ $meta_title=$data['meta_title'];
                         <i class="fa-regular fa-heart wishlist'.$id.' wishlist_heart" onclick="add_wish('.$id.')"></i>
                     </span>
     
-                    <img src="'.$filepath.'" alt="'.$slug.'">
+                    <img src="'.$filepath.'?v='.date('H').'" alt="'.$slug.'">
                     <div class="item-name-index mt-2 fw-bold px-1 col-12 text-start">
                         <p class="mb-1">'.$name.'</p>
                         <p class="text-start text-black-50 mb-2">

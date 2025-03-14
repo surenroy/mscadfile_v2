@@ -15,4 +15,4 @@ $site_url='http://localhost/mscadfile_v2/';
 
 
 $ver='1.0.0';
-$ver=time();
+//$ver=time();

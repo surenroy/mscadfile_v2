@@ -121,12 +121,12 @@
         <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between text-center text-md-start">
             <div class="copy-text">&copy; Copyright 2025 MSCAD File</div>
             <div class="payment-icons mt-2 mt-md-0">
-                <img src="<?php echo $site_url; ?>images/pay1.png" class="payment-icon mx-1" alt="Pay1">
-                <img src="<?php echo $site_url; ?>images/pay2.png" class="payment-icon mx-1" alt="Pay2">
-                <img src="<?php echo $site_url; ?>images/pay3.png" class="payment-icon mx-1" alt="Pay3">
-                <img src="<?php echo $site_url; ?>images/pay4.png" class="payment-icon mx-1" alt="Pay4">
-                <img src="<?php echo $site_url; ?>images/pay5.png" class="payment-icon mx-1" alt="Pay5">
-                <img src="<?php echo $site_url; ?>images/pay6.png" class="payment-icon mx-1" alt="Pay6">
+                <img src="<?php echo $site_url; ?>images/pay1.png?v=1" class="payment-icon mx-1" alt="Pay1">
+                <img src="<?php echo $site_url; ?>images/pay2.png?v=1" class="payment-icon mx-1" alt="Pay2">
+                <img src="<?php echo $site_url; ?>images/pay3.png?v=1" class="payment-icon mx-1" alt="Pay3">
+                <img src="<?php echo $site_url; ?>images/pay4.png?v=1" class="payment-icon mx-1" alt="Pay4">
+                <img src="<?php echo $site_url; ?>images/pay5.png?v=1" class="payment-icon mx-1" alt="Pay5">
+                <img src="<?php echo $site_url; ?>images/pay6.png?v=1" class="payment-icon mx-1" alt="Pay6">
             </div>
         </div>
     </div>

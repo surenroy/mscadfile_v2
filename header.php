@@ -67,16 +67,16 @@ if (!isset($_COOKIE['usd'])) {
                     <div class="nav-item dropdown notranslate" data-no-translate="true">
                         <a class="nav-link dropdown-toggle currency-toggle" href="#" id="currencyDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img id="selectedCurrencyFlag" src="https://flagcdn.com/w40/in.png" width="18" height="14" class="me-1">
+                            <img id="selectedCurrencyFlag" src="https://flagcdn.com/w40/in.png?v=1" width="18" height="14" class="me-1">
                             <span id="selectedCurrency">INR (₹)</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-custom">
-                            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="changeCurrency('INR(₹)', 'https://flagcdn.com/w40/in.png',1)">
-                                    <img src="https://flagcdn.com/w40/in.png" data-type="1" width="18" height="14" class="me-1"> INR (₹)
+                            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="changeCurrency('INR(₹)', 'https://flagcdn.com/w40/in.png?v=1',1)">
+                                    <img src="https://flagcdn.com/w40/in.png?v=1" data-type="1" width="18" height="14" class="me-1"> INR (₹)
                                 </a>
                             </li>
-                            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="changeCurrency('USD($)', 'https://flagcdn.com/w40/us.png',2)">
-                                    <img src="https://flagcdn.com/w40/us.png" data-type="2" width="18" height="14" class="me-1"> USD ($)
+                            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="changeCurrency('USD($)', 'https://flagcdn.com/w40/us.png?v=1',2)">
+                                    <img src="https://flagcdn.com/w40/us.png?v=1" data-type="2" width="18" height="14" class="me-1"> USD ($)
                                 </a>
                             </li>
                         </ul>
@@ -173,9 +173,9 @@ if (!isset($_COOKIE['usd'])) {
 
 <nav class="navbar navbar-expand-lg shadow-sm" style="background: linear-gradient(90deg, #000000 30%, #ebb120 100%); padding: 4px 0;">
     <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-start justify-content-start" href="<?php echo $site_url; ?>index.php">
-            <img src="<?php echo $site_url; ?>images/logo.webp" alt="mscadfile logo" width="100"  style="max-height: 40px; display: block !important;">
-            <span class="fw-bold store-welcome-mobile" href="<?php echo $site_url; ?>index.php">MSCAD Store</span>
+        <a class="navbar-brand d-flex align-items-start justify-content-start" href="<?php echo $site_url; ?>home.php">
+            <img src="<?php echo $site_url; ?>images/logo.webp?v=<?php echo date('H'); ?>" alt="mscadfile logo" width="100"  style="max-height: 40px; display: block !important;">
+            <span class="fw-bold store-welcome-mobile" href="<?php echo $site_url; ?>home.php">MSCAD Store</span>
         </a>
 
         <button class="navbar-toggler bg-light p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -186,7 +186,7 @@ if (!isset($_COOKIE['usd'])) {
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav flex-grow-0 me-auto mb-0">
 
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>home.php">Home</a></li>
                 <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>product.php">Products</a></li>
                 <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>category.php">Categories</a></li>
                 <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>blog.php">Blog</a></li>

@@ -6,28 +6,21 @@ require 'vendor/autoload.php';
 
 
 
-//MAIL DATA
 
- $resetLink="####";
-$msgData = [
-    'name' => 'John Doe123',
-    'message' => "Click the following link to reset your password: $resetLink \nThis link will expire in 1 hour.",
-    'downloadLink' => 'https://example.com/complete'
-];
-
-$response=sendSMTPMail(
-    toEmail: 'surenroy@electrocompsystem.com', 
-    subject: 'Welcome to Our Service123', 
-    msgData: $msgData
-);
-
-
-echo $response;
+//
+//$response=sendSMTPMail(
+//    toEmail: 'surenroy@electrocompsystem.com',
+//    name: 'John Doe123',
+//    subject: 'OTP For Mscadfile.com',
+//    otp: 123456
+//);
+//
+//
+//echo $response;
 
 
 
-function sendSMTPMail($toEmail, $subject, $msgData)
-{
+function sendSMTPMail($toEmail, $name, $subject, $otp){
     $mail = new PHPMailer(true); // Enable exceptions for error handling
 
     try {
@@ -48,74 +41,82 @@ function sendSMTPMail($toEmail, $subject, $msgData)
         $mail->isHTML(true);
         $mail->Subject = $subject;
 
-        // Create HTML template for the email body
         $mailBody = '<!DOCTYPE html>
-            <html>
-            <head>
-                <style>
-                    .container {
-                        font-family: Arial, sans-serif;
-                        max-width: 600px;
-                        margin: 0 auto;
-                        padding: 20px;
-                        border: 1px solid #ddd;
-                        border-radius: 10px;
-                        background-color: #f9f9f9;
-                    }
-                    .header {
-                        text-align: center;
-                        background-color: #007bff;
-                        color: white;
-                        padding: 10px 0;
-                        border-radius: 10px 10px 0 0;
-                    }
-                    .content {
-                        padding: 20px;
-                        line-height: 1.6;
-                        color: #333;
-                    }
-                    .footer {
-                        text-align: center;
-                        margin-top: 20px;
-                        font-size: 12px;
-                        color: #888;
-                    }
-                    .btn {
-                        display: inline-block;
-                        padding: 10px 20px;
-                        margin-top: 10px;
-                        color: white;
-                        background-color: #28a745;
-                        text-decoration: none;
-                        border-radius: 5px;
-                    }
-                    .btn:hover {
-                        background-color: #218838;
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="container">
-                    <div class="header">
-                        <h2>MS Cad File </h2>
-                    </div>
-                    <div class="content">
-                        <p>Dear ' . htmlspecialchars($msgData['name']) . ',</p>
-                        <p>' . htmlspecialchars($msgData['message']) . '</p>';
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            border-radius: 10px 10px 0 0;
+        }
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            color: white;
+            background-color: #28a745;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>MS Cad File</h2>
+        </div>
+        <div class="content">
+            <p>Dear ' . htmlspecialchars($name) . ',</p>
+            <p>Your OTP is <strong>' . htmlspecialchars($otp) . '</strong></p>
+            <p>Thank you for using our service!</p>
+        </div>
+        <div class="footer">
+            <p>&copy; ' . date('Y') . ' MS Cad File. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>';
 
-                    if (isset($msgData['downloadLink'])) {
-                        $mailBody .= '<p>Download your file <a href="' . htmlspecialchars($msgData['downloadLink']) . '" class="btn">Click Here</a></p>
-                                    <p>You can also open the URL to download your file: ' . htmlspecialchars($msgData['downloadLink']) . '</p>';
-                    }
-
-            $mailBody .= ' <p>Thank you.</p>
-                    </div>
-                    <div class="footer">
-                        <p>&copy; ' . date('Y') . ' MS Cad File. All rights reserved.</p>
-                    </div>
-                </div>
-            </body>
-            </html>';
 
 
         $mail->Body = $mailBody;

@@ -19,13 +19,13 @@ include_once ('header.php');
                 <div id="imageCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="<?php echo $site_url; ?>images/banner-1.png" class="d-block w-100 mx-auto img-fluid hero_img" alt="3D CAD Jewelry 1">
+                            <img src="<?php echo $site_url; ?>images/banner-1.png?v=<?php echo date('d'); ?>" class="d-block w-100 mx-auto img-fluid hero_img" alt="3D CAD Jewelry 1">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?php echo $site_url; ?>images/banner-2.png" class="d-block w-100 mx-auto img-fluid hero_img" alt="3D CAD Jewelry 2">
+                            <img src="<?php echo $site_url; ?>images/banner-2.png?v=<?php echo date('d'); ?>" class="d-block w-100 mx-auto img-fluid hero_img" alt="3D CAD Jewelry 2">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?php echo $site_url; ?>images/banner-3.png" class="d-block w-100 mx-auto img-fluid hero_img" alt="3D CAD Jewelry 3">
+                            <img src="<?php echo $site_url; ?>images/banner-3.png?v=<?php echo date('d'); ?>" class="d-block w-100 mx-auto img-fluid hero_img" alt="3D CAD Jewelry 3">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
@@ -89,7 +89,7 @@ include_once ('header.php');
             $url = $site_url . 'category/category.php?slug=' . $slug;
 
             echo '<div class="category-item"  onclick="openCategoryUrl(this)" data-url="' . $url . '">
-                <img src="' . $site_url . 'category_img/' . $id . '.jpg" alt="Category">
+                <img src="' . $site_url . 'category_img/' . $id . '.jpg?v='.date('Y').'" alt="Category">
                 <div class="category-name">' . $name . '</div>
             </div>';
         }
