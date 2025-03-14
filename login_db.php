@@ -503,7 +503,7 @@ switch ($action) {
                     <i class="fa-regular fa-heart wishlist'.$id.'" onclick="add_wish('.$id.')"></i>
                 </span>
 
-                <img src="'.$filepath.'" alt="'.$slug.'">
+                <img loading="lazy"  height="250" width="250" src="'.$filepath.'" alt="'.$slug.'">
                 <div class="item-name-index mt-2 fw-bold px-1 col-12 text-start">
                     <p class="mb-1">'.$name.'</p>
                     <p class="text-start text-black-50 mb-2">
@@ -570,7 +570,7 @@ switch ($action) {
                 </span>
 
                 <div class="item-name_banner">' . shortenString($name, 12) . '</div>
-                <img src="' . $filepath . '" alt="' . $slug . '">
+                <img loading="lazy" height="200" width="200" src="' . $filepath . '" alt="' . $slug . '">
             </div>';
 
 
@@ -656,7 +656,7 @@ switch ($action) {
                 </span>
                 <div class="ribbon_banner">Feature</div>
 
-                <img src="'.$filepath.'" alt="'.$slug.'">
+                <img loading="lazy" src="'.$filepath.'" alt="'.$slug.'">
                 <div class="item-name-index mt-2 fw-bold px-1 col-12 text-start">
                     <p class="mb-1">'.$name.'</p>
                     <p class="text-start text-black-50 mb-2">
@@ -760,7 +760,7 @@ switch ($action) {
                 </span>
                 <div class="ribbon_banner">New</div>
 
-                <img src="'.$filepath.'" alt="'.$slug.'">
+                <img loading="lazy" src="'.$filepath.'" alt="'.$slug.'">
                 <div class="item-name-index mt-2 fw-bold px-1 col-12 text-start">
                     <p class="mb-1">'.$name.'</p>
                     <p class="text-start text-black-50 mb-2">
@@ -835,7 +835,7 @@ switch ($action) {
             $view=$val['view'];
             $wish=$val['wish'];
 
-            $filepath = $site_url.'product_images/'.$featured_image;
+            $filepath = $site_url.'product_images/'.$featured_image.'?v='.date('H');
 
             if(isset($categoryArray[$category_id])){
                 $category_name=$categoryArray[$category_id]['name'];
@@ -864,7 +864,7 @@ switch ($action) {
                     <i class="fa-regular fa-heart wishlist'.$id.'" onclick="add_wish('.$id.')"></i>
                 </span>
 
-                <img src="'.$filepath.'" alt="'.$slug.'">
+                <img loading="lazy" src="'.$filepath.'" alt="'.$slug.'">
                 <div class="item-name-index mt-2 fw-bold px-1 col-12 text-start">
                     <p class="mb-1">'.$name.'</p>
                     <p class="text-start text-black-50 mb-2">
@@ -1065,7 +1065,7 @@ switch ($action) {
 
                 $html .= '<tr>
                 <td><a href="'.$site_url.'product/product.php?slug='.$slug.'" class="text-decoration-none fw-bold text-dark">'.$name.'</a></td>
-                <td><img src="product_images/'.$feature_image.'" class="pr_img" alt="'.$slug.'"></td>
+                <td><img src="product_images/'.$feature_image.'?v='.date('H').'" class="pr_img" alt="'.$slug.'"></td>
                 <td>
                     <del class="text-black-50 inr_price"><small>₹'.$inr_price.'</small></del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
                     <del class="text-black-50 usd_price"><small>$'.$usd_price.'</small></del> <span class="text-danger fw-bold usd_price">$'.$usd_offer.'</span>

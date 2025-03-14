@@ -30,13 +30,25 @@ if (!isset($_COOKIE['usd'])) {
     <meta name="description" content="High-quality 3D CAD files and models for jewelry designers. Access a vast collection of downloadable jewelry CAD files for professional use.">
     <meta name="author" content="mscadfile.com">
     <link rel="canonical" href="https://mscadfile.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="<?php echo $site_url; ?>css/bootstrap.min.css?v=<?php echo $ver; ?>" rel="stylesheet">
     <link href="<?php echo $site_url; ?>css/style.css?v=<?php echo $ver; ?>" rel="stylesheet">
 
+
+
+    <!-- Preconnect to necessary origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Preload Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
+
+    <!-- Preload Google Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"></noscript>
+
+    <link rel="preload" as="image" href="https://mscad.arindam.co.in/images/banner-1.png?v=<?php echo date('H'); ?>">
+
     <link rel="stylesheet" href="<?php echo $site_url; ?>css/jquery-confirm.min.css?v=<?php echo $ver; ?>">
 
 
@@ -67,15 +79,15 @@ if (!isset($_COOKIE['usd'])) {
                     <div class="nav-item dropdown notranslate" data-no-translate="true">
                         <a class="nav-link dropdown-toggle currency-toggle" href="#" id="currencyDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img id="selectedCurrencyFlag" src="https://flagcdn.com/w40/in.png?v=1" width="18" height="14" class="me-1">
+                            <img id="selectedCurrencyFlag" alt="currency" src="https://flagcdn.com/w40/in.png?v=1" width="18" height="14" class="me-1">
                             <span id="selectedCurrency">INR (₹)</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-custom">
-                            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="changeCurrency('INR(₹)', 'https://flagcdn.com/w40/in.png?v=1',1)">
+                            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="changeCurrency('INR(₹)', 'https://flagcdn.com/w40/in.png',1)">
                                     <img src="https://flagcdn.com/w40/in.png?v=1" data-type="1" width="18" height="14" class="me-1"> INR (₹)
                                 </a>
                             </li>
-                            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="changeCurrency('USD($)', 'https://flagcdn.com/w40/us.png?v=1',2)">
+                            <li><a class="dropdown-item d-flex align-items-center" href="#" onclick="changeCurrency('USD($)', 'https://flagcdn.com/w40/us.png',2)">
                                     <img src="https://flagcdn.com/w40/us.png?v=1" data-type="2" width="18" height="14" class="me-1"> USD ($)
                                 </a>
                             </li>
@@ -174,7 +186,7 @@ if (!isset($_COOKIE['usd'])) {
 <nav class="navbar navbar-expand-lg shadow-sm" style="background: linear-gradient(90deg, #000000 30%, #ebb120 100%); padding: 4px 0;">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-start justify-content-start" href="<?php echo $site_url; ?>home.php">
-            <img src="<?php echo $site_url; ?>images/logo.webp?v=<?php echo date('H'); ?>" alt="mscadfile logo" width="100"  style="max-height: 40px; display: block !important;">
+            <img src="<?php echo $site_url; ?>images/logo.webp?v=<?php echo date('H'); ?>" alt="mscadfile logo" width="100" height="100"  style="max-height: 40px; display: block !important;">
             <span class="fw-bold store-welcome-mobile" href="<?php echo $site_url; ?>home.php">MSCAD Store</span>
         </a>
 

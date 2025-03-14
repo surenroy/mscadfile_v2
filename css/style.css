@@ -1021,3 +1021,7 @@ ul li a:hover {
     width: 100%;
     height: auto;
 }
+
+.text-black-50{
+    color: #282828 !important;
+}

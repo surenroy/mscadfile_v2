@@ -692,7 +692,7 @@ function googleTranslateElementInit() {
     setTimeout(function () {
         let selectLangText = document.querySelector('.goog-te-gadget-simple');
         if (selectLangText) {
-            selectLangText.innerHTML = '<button id="translate-button"><i class="fa-solid fa-language"></i></button>';
+            selectLangText.innerHTML = '<button id="translate-button" aria-label="Translate text to another language"><i class="fa-solid fa-language"></i></button>';
             $("#google_translate_element").css("z-index", "auto");
         }
     }, 500);

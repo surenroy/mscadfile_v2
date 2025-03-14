@@ -1,18 +1,24 @@
 RewriteEngine On
 
-# Set the domain name of your website
-#RewriteCond %{HTTP_REFERER} !^$
-#RewriteCond %{HTTP_REFERER} !^https?://(www\.)?yourdomain\.com [NC]
-#RewriteCond %{HTTP_REFERER} !^https?://(subdomain\.)?yourdomain\.com [NC]
-#RewriteCond %{HTTP_REFERER} !^https?://(yourdomain\.com|www\.yourdomain\.com)/ [NC]
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 
-# Allow requests with no referer (direct access) //localhost
-RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^http://localhost [NC]
-RewriteCond %{HTTP_REFERER} !^http://127\.0\.0\.1 [NC]
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+    
+    # Cache image formats
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/ico "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+</IfModule>
 
-
-
-# Block access to specific file types if the referer is not allowed
-RewriteRule \.(jpeg|jpg|png|gif|json|pdf)$ - [F,NC,L]
+<IfModule mod_headers.c>
+    <FilesMatch "\.(png|jpg|jpeg|ico|webp)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>

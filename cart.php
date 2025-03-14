@@ -161,7 +161,7 @@ include_once('header.php');
 
                             $html .= '<tr>
                 <td><a href="'.$site_url.'product/product.php?slug='.$slug.'" class="text-decoration-none fw-bold text-dark">'.$name.'</a></td>
-                <td><img src="product_images/' . $feature_image . '" class="pr_img" alt="' . $slug . '"></td>
+                <td><img src="product_images/' . $feature_image . 'v=?'.date('H').'" class="pr_img" alt="' . $slug . '"></td>
                 <td>
                     <del class="text-black-50 inr_price"><small>₹' . $inr_price . '</small></del> <del class="text-black-50 usd_price"><small>$' . $usd_price . '</small></del>
                 </td>
