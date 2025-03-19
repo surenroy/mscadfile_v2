@@ -78,7 +78,7 @@ ORDER BY sales.created_at DESC";
 
             $html .= '<tr>
                     <td>' . $created_at . '</td>
-                    <td><a target="_blank" href="'.$site_url.'product/product.php?slug='.$slug.'" class="text-dark text-decoration-none">' . $name . '</a></td>
+                    <td><a target="_blank" href="'.$site_url.'product/?name='.$slug.'" class="text-dark text-decoration-none">' . $name . '</a></td>
                     <td>#' . $buyer_id . '</td>
                     <td><img src="' . $site_url . 'product_images/' . $featured_image . '" class="pr_img" alt="' . $slug . '"></td>
                     <td>' . $inr . '</td>

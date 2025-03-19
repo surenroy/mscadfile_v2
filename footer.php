@@ -98,18 +98,17 @@
 
                 <div class="col-md-3 col-sm-6 col-12  mt-md-0 mt-3 d-flex justify-content-sm-center justify-content-start">
                     <ul class="list-unstyled">
-                        <li>› <a target="_blank" href="<?php echo $site_url; ?>page/shipping.php">Shipping Policy</a></li>
-                        <li>› <a target="_blank" href="<?php echo $site_url; ?>page/terms.php">Terms & Conditions</a></li>
-                        <li>› <a target="_blank" href="<?php echo $site_url; ?>page/contact.php">Privacy Policy</a></li>
-                        <li>› <a target="_blank" href="<?php echo $site_url; ?>page/contact.php">Contact Us</a></li>
+                        <li>› <a  href="<?php echo $site_url; ?>page/shipping-policy/">Shipping Policy</a></li>
+                        <li>› <a  href="<?php echo $site_url; ?>page/terms-and-conditions/">Terms & Conditions</a></li>
+                        <li>› <a  href="<?php echo $site_url; ?>page/privacy-policy/">Privacy Policy</a></li>
+                        <li>› <a  href="<?php echo $site_url; ?>page/contact-us/">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6 col-12  mt-md-0 mt-sm-3 mt-0 d-flex justify-content-sm-center justify-content-start">
                     <ul class="list-unstyled">
-                        <li>› <a target="_blank" href="<?php echo $site_url; ?>page/contact.php">Disclaimer</a></li>
-                        <li>› <a target="_blank" href="<?php echo $site_url; ?>page/about_us.php">About Us</a></li>
-                        <li>› <a target="_blank" href="<?php echo $site_url; ?>page/return.php">Return Policy</a></li>
-                        <li>› <a target="_blank" href="<?php echo $site_url; ?>page/faq.php">FAQ</a></li>
+                        <li>› <a  href="<?php echo $site_url; ?>page/about-us/">About Us</a></li>
+                        <li>› <a  href="<?php echo $site_url; ?>page/return-policy/">Return Policy</a></li>
+                        <li>› <a  href="<?php echo $site_url; ?>page/frequently-asked-questions/">FAQ</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,8 +1,9 @@
 <?php
 include_once ('../header.php');
 
-if (isset($_GET['search'])) {
-    $search = $_GET['search'];
+
+if (isset($_GET['product'])) {
+    $search = $_GET['product'];
     $search=htmlspecialchars($search);
 
     $_SESSION['search'] = $search;

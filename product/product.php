@@ -3,8 +3,8 @@ include_once ('../header.php');
 
 
 
-if (isset($_GET['slug'])) {
-    $slug = $_GET['slug'];
+if (isset($_GET['name'])) {
+    $slug = $_GET['name'];
 
 
     $sql="SELECT `id`,`name`,`slug`,`currency`,`price`,`offer`,`feature`,`category_id`,`user_id`,`created_at`,`view`,`wish`,
@@ -323,7 +323,7 @@ $meta_title=$data['meta_title'];
                 </div>
 
                 <p class="mt-2"><strong>File includes:</strong> <span class="text-dark"><?php echo $files; ?></span></p>
-                <p class="mt-2"><strong>Category:</strong> <a class="text-decoration-none" href="<?php echo $site_url; ?>'category/category.php?slug=<?php echo $category_slug; ?>"><small><?php echo $category_name; ?></small></a></p>
+                <p class="mt-2"><strong>Category:</strong> <a class="text-decoration-none" href="<?php echo $site_url; ?>'category/?name=<?php echo $category_slug; ?>"><small><?php echo $category_name; ?></small></a></p>
 
             </div>
 
@@ -342,14 +342,14 @@ $meta_title=$data['meta_title'];
 
             <div class="mt-3">
                 <span class="fw-bold">Share:</span>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $site_url; ?>product/product.php?slug=<?php echo $slug; ?>" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fab fa-facebook"></i></a>
-                <a href="whatsapp://send?text=<?php echo $site_url; ?>product/product.php?slug=<?php echo $slug; ?>" class="btn btn-outline-success btn-sm"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://telegram.me/share/url?url=<?php echo $site_url; ?>product/product.php?slug=<?php echo $slug; ?>" class="btn btn-outline-info btn-sm"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $site_url; ?>product/?name=<?php echo $slug; ?>" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fab fa-facebook"></i></a>
+                <a href="whatsapp://send?text=<?php echo $site_url; ?>product/?name=<?php echo $slug; ?>" class="btn btn-outline-success btn-sm"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://telegram.me/share/url?url=<?php echo $site_url; ?>product/?name=<?php echo $slug; ?>" class="btn btn-outline-info btn-sm"><i class="fab fa-telegram"></i></a>
             </div>
 
             <div class="mt-4 d-flex justify-content-between">
                 <p><strong>Seller:</strong> #<?php echo $seller; ?></p>
-                <a target="_blank" href="<?php echo $site_url; ?>seller/seller.php?id=<?php echo $seller; ?>" class="text-primary no-underline">View Seller Profile</a>
+                <a target="_blank" href="<?php echo $site_url; ?>seller/?id=<?php echo $seller; ?>" class="text-primary no-underline">View Seller Profile</a>
             </div>
 
             <table class="table mt-3">
@@ -473,7 +473,7 @@ $meta_title=$data['meta_title'];
                         <p class="text-start text-black-50 mb-2">
                             <small><i class="fa-solid fa-eye" id="view_'.$id.'"></i> '.$view.'</small>&nbsp;&nbsp;
                             <small><i class="fa-solid fa-heart" id="wish_'.$id.'"></i> '.$wish.'</small>&nbsp;&nbsp;
-                            <a class="text-decoration-none text-black-50" href="'.$site_url.'category/category.php?slug='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
+                            <a class="text-decoration-none text-black-50" href="'.$site_url.'category/?name='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
                         </p>
                     </div>
     
@@ -485,7 +485,7 @@ $meta_title=$data['meta_title'];
                     </div>
     
                     <div class="col-12 px-1 pb-2 d-flex flex-row justify-content-between flex-wrap">
-                        <a href="'.$site_url.'product/product.php?slug='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
+                        <a href="'.$site_url.'product/?name='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
                         <button class="btn btn-sm btn-dark col-sm-5 addcart add_cart_'.$id.'" onclick="add_cart('.$id.')">Add To Cart</button>
                         <button class="btn btn-sm btn-warning d-none col-sm-5 removecart remove_cart_'.$id.'" onclick="remove_cart('.$id.')">In Cart</button>
                     </div>

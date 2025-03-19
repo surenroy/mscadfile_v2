@@ -169,16 +169,17 @@ $(document).ready(function () {
 
 function all_search() {
     var search_str = $('#top_search').val();
-    if(search_str==''){
-        alert_js('Please Add Search Parameter.','Error');
+    if(search_str == '') {
+        alert_js('Please Add Search Parameter.', 'Error');
         return false;
     }
     var encodedSearchStr = encodeURIComponent(search_str);
 
-    var finalUrl = `${site_url}search/search.php?search=${encodedSearchStr}`;
+    var finalUrl = `${site_url}search/?product=${encodedSearchStr}`;
 
-    window.open(finalUrl, '_blank');
+    window.location.href = finalUrl; 
 }
+
 
 function remove_wish(id){
     $.ajax({

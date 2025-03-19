@@ -509,7 +509,7 @@ switch ($action) {
                     <p class="text-start text-black-50 mb-2">
                         <small><i class="fa-solid fa-eye" id="view_'.$id.'"></i> '.$view.'</small>&nbsp;&nbsp;
                         <small><i class="fa-solid fa-heart" id="wish_'.$id.'"></i> '.$wish.'</small>&nbsp;&nbsp;
-                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/category.php?slug='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
+                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/?name='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
                     </p>
                 </div>
 
@@ -521,7 +521,7 @@ switch ($action) {
                 </div>
 
                 <div class="col-12 px-1 pb-2 d-flex flex-row justify-content-between flex-wrap">
-                    <a href="'.$site_url.'product/product.php?slug='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
+                    <a href="'.$site_url.'product/?name='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
                     <button class="btn btn-sm btn-dark col-sm-5 addcart add_cart_'.$id.'" onclick="add_cart('.$id.')">Add To Cart</button>
                     <button class="btn btn-sm btn-warning d-none col-sm-5 removecart remove_cart_'.$id.'" onclick="remove_cart('.$id.')">In Cart</button>
                 </div>
@@ -560,7 +560,7 @@ switch ($action) {
 
             $filepath = $site_url.'product_images/'.$featured_image.'?v='.date('H');;
 
-            $url=$site_url.'product/product.php?slug='.$slug;
+            $url=$site_url.'product/?name='.$slug;
 
             $html .= '<div class="item-item-big col-md-2 col-5 mx-2 mt-2" onclick="openInNewTab(\'' . $url . '\')">
                 <div class="ribbon_banner">' . $feature . '</div>
@@ -662,7 +662,7 @@ switch ($action) {
                     <p class="text-start text-black-50 mb-2">
                         <small><i class="fa-solid fa-eye" id="view_'.$id.'"></i> '.$view.'</small>&nbsp;&nbsp;
                         <small><i class="fa-solid fa-heart" id="wish_'.$id.'"></i> '.$wish.'</small>&nbsp;&nbsp;
-                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/category.php?slug='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
+                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/?name='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
                     </p>
                 </div>
 
@@ -674,7 +674,7 @@ switch ($action) {
                 </div>
 
                 <div class="col-12 px-1 pb-2 d-flex flex-row justify-content-between flex-wrap">
-                    <a href="'.$site_url.'product/product.php?slug='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
+                    <a href="'.$site_url.'product/?name='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
                     <button class="btn btn-sm btn-dark col-sm-5 addcart add_cart_'.$id.'" onclick="add_cart('.$id.')">Add To Cart</button>
                     <button class="btn btn-sm btn-warning d-none col-sm-5 removecart remove_cart_'.$id.'" onclick="remove_cart('.$id.')">In Cart</button>
                 </div>
@@ -766,7 +766,7 @@ switch ($action) {
                     <p class="text-start text-black-50 mb-2">
                         <small><i class="fa-solid fa-eye" id="view_'.$id.'"></i> '.$view.'</small>&nbsp;&nbsp;
                         <small><i class="fa-solid fa-heart" id="wish_'.$id.'"></i> '.$wish.'</small>&nbsp;&nbsp;
-                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/category.php?slug='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
+                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/?name='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
                     </p>
                 </div>
 
@@ -778,7 +778,7 @@ switch ($action) {
                 </div>
 
                 <div class="col-12 px-1 pb-2 d-flex flex-row justify-content-between flex-wrap">
-                    <a href="'.$site_url.'product/product.php?slug='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
+                    <a href="'.$site_url.'product/?name='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
                     <button class="btn btn-sm btn-dark col-sm-5 addcart add_cart_'.$id.'" onclick="add_cart('.$id.')">Add To Cart</button>
                     <button class="btn btn-sm btn-warning d-none col-sm-5 removecart remove_cart_'.$id.'" onclick="remove_cart('.$id.')">In Cart</button>
                 </div>
@@ -870,7 +870,7 @@ switch ($action) {
                     <p class="text-start text-black-50 mb-2">
                         <small><i class="fa-solid fa-eye" id="view_'.$id.'"></i> '.$view.'</small>&nbsp;&nbsp;
                         <small><i class="fa-solid fa-heart" id="wish_'.$id.'"></i> '.$wish.'</small>&nbsp;&nbsp;
-                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/category.php?slug='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
+                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/?name='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
                     </p>
                 </div>
 
@@ -882,7 +882,7 @@ switch ($action) {
                 </div>
 
                 <div class="col-12 px-1 pb-2 d-flex flex-row justify-content-between flex-wrap">
-                    <a href="'.$site_url.'product/product.php?slug='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
+                    <a href="'.$site_url.'product/?name='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
                     <button class="btn btn-sm btn-dark col-sm-5 addcart add_cart_'.$id.'" onclick="add_cart('.$id.')">Add To Cart</button>
                     <button class="btn btn-sm btn-warning d-none col-sm-5 removecart remove_cart_'.$id.'" onclick="remove_cart('.$id.')">In Cart</button>
                 </div>
@@ -974,7 +974,7 @@ switch ($action) {
                     <p class="text-start text-black-50 mb-2">
                         <small><i class="fa-solid fa-eye" id="view_'.$id.'"></i> '.$view.'</small>&nbsp;&nbsp;
                         <small><i class="fa-solid fa-heart" id="wish_'.$id.'"></i> '.$wish.'</small>&nbsp;&nbsp;
-                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/category.php?slug='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
+                        <a class="text-decoration-none text-black-50" href="'.$site_url.'category/?name='.$category_slug.'"><small><i class="fa-solid fa-list"></i> '.$category_name.'</small></a>
                     </p>
                 </div>
 
@@ -986,7 +986,7 @@ switch ($action) {
                 </div>
 
                 <div class="col-12 px-1 pb-2 d-flex flex-row justify-content-between flex-wrap">
-                    <a href="'.$site_url.'product/product.php?slug='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
+                    <a href="'.$site_url.'product/?name='.$slug.'" class="btn btn-sm btn-primary col-sm-5 text-decoration-none">View Details</a>
                     <button class="btn btn-sm btn-dark col-sm-5 addcart add_cart_'.$id.'" onclick="add_cart('.$id.')">Add To Cart</button>
                     <button class="btn btn-sm btn-warning d-none col-sm-5 removecart remove_cart_'.$id.'" onclick="remove_cart('.$id.')">In Cart</button>
                 </div>
@@ -1064,7 +1064,7 @@ switch ($action) {
 
 
                 $html .= '<tr>
-                <td><a href="'.$site_url.'product/product.php?slug='.$slug.'" class="text-decoration-none fw-bold text-dark">'.$name.'</a></td>
+                <td><a href="'.$site_url.'product/?name='.$slug.'" class="text-decoration-none fw-bold text-dark">'.$name.'</a></td>
                 <td><img src="product_images/'.$feature_image.'?v='.date('H').'" class="pr_img" alt="'.$slug.'"></td>
                 <td>
                     <del class="text-black-50 inr_price"><small>₹'.$inr_price.'</small></del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>

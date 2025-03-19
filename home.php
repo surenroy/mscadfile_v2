@@ -1,13 +1,11 @@
 <?php
+include_once ('./config.php');
+if (basename($_SERVER['SCRIPT_NAME']) == 'home.php') {
+    header("Location: $site_url");
+    exit(); // Ensure that no further code is executed after redirection
+}
 include_once ('header.php');
-
 ?>
-
-
-
-
-
-
 
 
 
@@ -86,7 +84,7 @@ include_once ('header.php');
             $name=$val['name'];
             $slug=$val['slug'];
 
-            $url = $site_url . 'category/category.php?slug=' . $slug;
+            $url = $site_url . 'category/?name=' . $slug;
 
             echo '<div class="category-item"  onclick="openCategoryUrl(this)" data-url="' . $url . '">
                 <img loading="lazy" height="150" width="150" src="' . $site_url . 'category_img/' . $id . '.jpg?v='.date('H').'" alt="Category">

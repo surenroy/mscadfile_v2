@@ -80,7 +80,7 @@ switch ($action) {
             $html .= '<tr>
                     <td>' . $created_at . '</td>
                     <td>' . $name . '</td>
-                    <td><a target="_blank" href="' . $site_url . 'seller/seller.php?id=' . $seller_id . '" class="text-dark no-underline">#' . $seller_id . '</a></td>
+                    <td><a target="_blank" href="' . $site_url . 'seller/?id=' . $seller_id . '" class="text-dark no-underline">#' . $seller_id . '</a></td>
                     <td><img src="' . $site_url . 'product_images/' . $featured_image . '" class="pr_img" alt="' . $slug . '"></td>
                     <td>
                         <button class="btn btn-sm btn-warning mx-1 p-1 px-2" onclick="load_files('.$id.')"><i class="fa-solid fa-eye"></i></button>

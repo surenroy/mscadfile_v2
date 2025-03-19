@@ -170,10 +170,10 @@ if (!isset($_COOKIE['usd'])) {
             </div>
         </div>
 
-        <a href="<?php echo $site_url; ?>wishlist.php" class="col-4 col-sm-2 mt-2 mt-sm-0 btn btn-dark fw-bold px-3 btn-sm">
+        <a href="<?php echo $site_url; ?>your-wish-list/" class="col-4 col-sm-2 mt-2 mt-sm-0 btn btn-dark fw-bold px-3 btn-sm">
             <i class="fa-solid fa-heart"></i> <span class="cart text-capitalize">Wishlist </span>(<span id="wishlist_cnt">0</span>)
         </a>
-        <a href="<?php echo $site_url; ?>cart.php" class="col-4 col-sm-2 mt-2 mt-sm-0 btn btn-dark fw-bold px-3 btn-sm">
+        <a href="<?php echo $site_url; ?>your-cart/" class="col-4 col-sm-2 mt-2 mt-sm-0 btn btn-dark fw-bold px-3 btn-sm">
             <i class="fa fa-shopping-cart"></i> <span class="cart text-capitalize">Cart </span>(<span id="cart_cnt">0</span>)
         </a>
 
@@ -198,12 +198,12 @@ if (!isset($_COOKIE['usd'])) {
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav flex-grow-0 me-auto mb-0">
 
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>home.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>product.php">Products</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>category.php">Categories</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>blog.php">Blog</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>featured.php">Featured</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>new_arrivals.php">New Arrivals</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>our-products/">Products</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>product-category/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>our-blogs/">Blog</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>our-featured-products/">Featured</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>our-new-arrivals/">New Arrivals</a></li>
             </ul>
         </div>
     </div>

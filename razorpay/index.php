@@ -7,6 +7,7 @@ include_once '../config.php';
 $routes = [
     '' => 'payment.php',
     'status' => 'status.php',
+    'test' => 'test.php',
 
 ];
 

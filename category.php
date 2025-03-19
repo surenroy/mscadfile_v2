@@ -1,6 +1,5 @@
 <?php
 include_once ('header.php');
-
 ?>
 
 
@@ -41,12 +40,14 @@ include_once ('header.php');
                 $cnt=0;
             }
 
-            $url = $site_url . 'category/category.php?slug=' . $slug;
-
-            echo '<div class="category-item-big col-sm-2 mx-2 mt-3" onclick="openCategoryUrl(this)" data-url="' . $url . '">
+            $url = $site_url . 'category/?name=' . $slug;
+            
+            echo '<div class="category-item-big col-sm-2 mx-2 mt-3">
+            <a href="' . $url . '">
             <span class="counter">' . $cnt . '</span>
             <div class="category-name">' . $name . '</div>
             <img src="' . $filepath . '" alt="' . $slug . '">
+            </a>
           </div>';
 
         }
@@ -59,16 +60,6 @@ include_once ('header.php');
 
     </div>
 </section>
-
-
-<script>
-    function openCategoryUrl(element) {
-        const url = element.getAttribute('data-url');
-        window.open(url, '_blank');
-    }
-
-</script>
-
 
 
 <?php
