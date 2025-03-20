@@ -647,7 +647,7 @@ switch ($action) {
         $active=$_POST["active"];
 
         if($active==1){
-            $sql="UPDATE `products` SET `active`='0' WHERE `id`='$id' AND `user_id`='$user_id'";
+            $sql="UPDATE `products` SET `active`='0' WHERE `id`='$id' AND `user_id`='$user_id' AND `admin_stop`='0'";
         }else if($active==0){
             $sql="UPDATE `products` SET `active`='1' WHERE `id`='$id' AND `user_id`='$user_id'";
         }

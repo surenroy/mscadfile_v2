@@ -560,9 +560,9 @@ switch ($action) {
 
             $filepath = $site_url.'product_images/'.$featured_image.'?v='.date('H');;
 
-            $url=$site_url.'product/?name='.$slug;
+            $url='product/?name='.$slug;
 
-            $html .= '<div class="item-item-big col-md-2 col-5 mx-2 mt-2" onclick="openInNewTab(\'' . $url . '\')">
+            $html .= '<a class="item-item-big col-md-2 col-5 mx-2 mt-2 text-decoration-none" href="' . $url . '">
                 <div class="ribbon_banner">' . $feature . '</div>
 
                 <span class="badge badge_love bg-danger position-absolute top-0 end-0">
@@ -571,7 +571,7 @@ switch ($action) {
 
                 <div class="item-name_banner">' . shortenString($name, 12) . '</div>
                 <img loading="lazy" height="200" width="200" src="' . $filepath . '" alt="' . $slug . '">
-            </div>';
+            </a>';
 
 
         }
@@ -1065,7 +1065,7 @@ switch ($action) {
 
                 $html .= '<tr>
                 <td><a href="'.$site_url.'product/?name='.$slug.'" class="text-decoration-none fw-bold text-dark">'.$name.'</a></td>
-                <td><img src="product_images/'.$feature_image.'?v='.date('H').'" class="pr_img" alt="'.$slug.'"></td>
+                <td><img src="../product_images/'.$feature_image.'?v='.date('H').'" class="pr_img" alt="'.$slug.'"></td>
                 <td>
                     <del class="text-black-50 inr_price"><small>₹'.$inr_price.'</small></del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
                     <del class="text-black-50 usd_price"><small>$'.$usd_price.'</small></del> <span class="text-danger fw-bold usd_price">$'.$usd_offer.'</span>

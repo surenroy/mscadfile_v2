@@ -1752,7 +1752,8 @@ DROP TABLE IF EXISTS `blog`;
 CREATE TABLE `blog` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` blob DEFAULT NULL,
-  `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `slug` blob DEFAULT NULL,
+  `date_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `short_text` blob DEFAULT NULL,
   `image` blob DEFAULT NULL,
   `del_flg` int(1) DEFAULT 0,
@@ -1761,8 +1762,8 @@ CREATE TABLE `blog` (
 
 /*Data for the table `blog` */
 
-insert  into `blog`(`id`,`title`,`date_time`,`short_text`,`image`,`del_flg`) values 
-(2,'Blog Title','2025-03-03 12:22:23','Discover the latest trends, tips, and insights in our blog. From lifestyle and wellness to technology and travel, we cover a wide range of topics to inspire and inform our readers. Join us as we explore new ideas, share experiences, and foster a comm','202174098288267c54a62547436_44862663.png',0);
+insert  into `blog`(`id`,`title`,`slug`,`date_time`,`short_text`,`image`,`del_flg`) values 
+(2,'Blog Title','blog-title','2025-03-20 00:31:49','Discover the latest trends, tips, and insights in our blog. From lifestyle and wellness to technology and travel, we cover a wide range of topics to inspire and inform our readers. Join us as we explore new ideas, share experiences, and foster a comm','202174098288267c54a62547436_44862663.png',0);
 
 /*Table structure for table `categories` */
 
@@ -2085,9 +2086,9 @@ DROP TABLE IF EXISTS `download_files`;
 
 CREATE TABLE `download_files` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `file_id` bigint(20) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `file_url` blob DEFAULT NULL,
+  `complete` int(1) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -2102,16 +2103,11 @@ CREATE TABLE `job_data` (
   `job_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `description` blob DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 /*Data for the table `job_data` */
-
-insert  into `job_data`(`id`,`job_id`,`user_id`,`description`,`created_at`) values 
-(1,3,39,'1,2,3','2025-03-03 15:20:17'),
-(2,2,202,'3,1,5','2025-03-03 18:33:56'),
-(3,2,202,'9,5','2025-03-03 22:10:30');
 
 /*Table structure for table `jobs` */
 
@@ -2120,19 +2116,17 @@ DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `image` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `del_flg` int(1) DEFAULT 0 COMMENT '0 open, 1 closed',
   `create_by` int(11) DEFAULT NULL,
   `type` int(1) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `jobs` */
 
 insert  into `jobs`(`id`,`image`,`created_at`,`del_flg`,`create_by`,`type`) values 
-(2,'202174098856967c56099d200e6_79370121.png','2025-03-03 23:57:48',0,1,1),
-(3,'202174099539367c57b4153cd87_00240597.png','2025-03-03 23:57:49',0,202,2),
-(4,'202174101997767c5db49aec063_39560540.png','2025-03-03 23:57:52',0,202,3);
+(6,'202174244273267db90ec0b1f52_96603766.png','2025-03-20 09:22:12',0,202,2);
 
 /*Table structure for table `manage_api_tokens` */
 
@@ -2155,7 +2149,7 @@ CREATE TABLE `manage_api_tokens` (
 /*Data for the table `manage_api_tokens` */
 
 insert  into `manage_api_tokens`(`id`,`email`,`refresh_token`,`access_token`,`created_at`,`api_key`,`client_id`,`client_secret`,`auth_code`,`parent_folder`) values 
-(2,'onlinesgscc@gmail.com','1//04CjYqXaY-SOaCgYIARAAGAQSNwF-L9Ir7s0Bb25vw6tYToqHhFeA5jJQcXJv5uzQFlxHbjI_dIoSVUxWtU54e4vQ6Y9bMQf6Fgg','ya29.a0AeXRPp5sW5eFfO1-3A_2YO5Q_PUrAZRKRHgj6NaLrpNB7y98IYztq_O7w4PAQjGcKXfCQ2lt9vm6f_Cs2CntaMCLCvCn7183Kg85LvFwtsLYU21i8aGA8RDnnlBn8EsB2LteJR7VZILYHMMYF4uIVDJB6x867Zzz5A19BBtbBgaCgYKASUSARESFQHGX2Mi27ho_xXxJkKk-0jPNhk7Zw0177','2025-03-03 22:05:04','AIzaSyCFkG3DFayI3ZDSpx8aQc33Hfi6tESMQgA','434620373238-u3kpgfnsqse3e3g9p6v48jn7tdn6g871.apps.googleusercontent.com','yrQ_8a6ZSYSW30aN4H9PdERn','4/0ASVgi3LQDvWoSw8Mn90ShcJUlC90kCcMqKm5x0BeRtHmjK3mDf8lcEfNfYXC2ucrF-ybvw','1nSAtObXym7LHo2A2j4UdvGwrjfNg7eJM');
+(2,'onlinesgscc@gmail.com','1//04CjYqXaY-SOaCgYIARAAGAQSNwF-L9Ir7s0Bb25vw6tYToqHhFeA5jJQcXJv5uzQFlxHbjI_dIoSVUxWtU54e4vQ6Y9bMQf6Fgg','ya29.a0AeXRPp5nEJYuysnC5LclzyPJhfScxO6MsDrtUNb8XN1NQKZc972awllsmAIkRYREwpbVfx61nWZHHv__739p8-Vu-bBjeKfSP41JMCyGx7RDyzqaX5Wg1IwnNwmdhV3okrDJxxEHFPjk9TW5prm3PUGyeWwX6XK1TCzEc92_kkUaCgYKAa4SARESFQHGX2Mi67pwcup1VVDafOewar6OkQ0178','2025-03-20 23:45:38','AIzaSyCFkG3DFayI3ZDSpx8aQc33Hfi6tESMQgA','434620373238-u3kpgfnsqse3e3g9p6v48jn7tdn6g871.apps.googleusercontent.com','yrQ_8a6ZSYSW30aN4H9PdERn','4/0ASVgi3LQDvWoSw8Mn90ShcJUlC90kCcMqKm5x0BeRtHmjK3mDf8lcEfNfYXC2ucrF-ybvw','1nSAtObXym7LHo2A2j4UdvGwrjfNg7eJM');
 
 /*Table structure for table `message` */
 
@@ -2166,20 +2160,27 @@ CREATE TABLE `message` (
   `from` int(11) DEFAULT NULL,
   `to` int(11) DEFAULT NULL,
   `subject` blob DEFAULT NULL,
-  `create_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `create_on` timestamp NOT NULL DEFAULT current_timestamp(),
   `open` int(1) DEFAULT 0,
+  `reply` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `message` */
 
-insert  into `message`(`id`,`from`,`to`,`subject`,`create_on`,`open`) values 
-(7,1,201,'Subject','2025-02-23 21:53:05',1),
-(8,201,1,'Subject','2025-02-23 20:39:02',0),
-(9,201,1,'Subject','2025-02-23 20:39:07',0),
-(10,201,1,'Subject','2025-02-23 20:39:11',0),
-(11,202,1,'Test','2025-03-02 22:13:20',0),
-(12,202,1,'Test2','2025-03-02 22:16:06',0);
+insert  into `message`(`id`,`from`,`to`,`subject`,`create_on`,`open`,`reply`) values 
+(7,1,201,'Subject','2025-03-20 09:55:09',1,15),
+(8,201,1,'Subject','2025-03-20 09:56:09',1,15),
+(9,201,1,'Subject','2025-03-20 09:55:33',0,15),
+(10,201,1,'Subject','2025-03-20 09:55:35',1,15),
+(11,202,1,'Test','2025-03-20 09:55:36',0,15),
+(12,202,1,'Test2','2025-03-03 03:46:06',0,20),
+(13,202,1,'Adm Msg 1','2025-03-20 00:34:07',1,19),
+(14,202,1,'Adm msg 2','2025-03-20 10:11:14',1,18),
+(15,1,201,'Outbox','2025-03-20 09:44:34',0,NULL),
+(18,1,202,'Reply: Adm msg 2','2025-03-20 10:11:14',0,NULL),
+(19,1,202,'Reply: Adm Msg 1','2025-03-20 19:35:11',0,NULL),
+(20,1,202,'Reply: Test2','2025-03-20 19:36:30',0,NULL);
 
 /*Table structure for table `newsletters` */
 
@@ -2206,6 +2207,7 @@ CREATE TABLE `products` (
   `offer` int(6) DEFAULT 0,
   `feature` tinyint(1) NOT NULL DEFAULT 0,
   `active` tinyint(1) NOT NULL DEFAULT 0,
+  `admin_stop` int(1) DEFAULT 0,
   `category_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
@@ -2228,16 +2230,17 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `products_category_id_foreign` (`category_id`),
   KEY `products_user_id_foreign` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `products` */
 
-insert  into `products`(`id`,`name`,`slug`,`currency`,`price`,`offer`,`feature`,`active`,`category_id`,`user_id`,`created_at`,`view`,`wish`,`pending`,`drive_pending`,`attr_size`,`attr_size_unit`,`attr_weight`,`attr_weight_unit`,`attr_purity`,`attr_purity_unit`,`attr_volume`,`attr_volume_unit`,`files`,`featured_image`,`total_space`,`total_files`) values 
-(1,'Product 1','product-1',1,200,100,1,1,37,202,'2025-03-02 14:55:53',1,0,0,0,'20.33',1,'25.25',1,'1',1,'12.33',1,'1,1,1,0','120267c33bebd659a5_85612588.png','0.3','3/2'),
-(3,'Product 2','product-2',1,230,110,1,1,43,202,'2025-03-03 22:08:14',0,0,0,0,'20.33',3,'',0,'5',2,'12.38',4,'1,1,0,1','320267c33ccce3a403_70182172.png','0.59','3/1'),
-(5,'Product 3','product-3',2,30,25,0,1,35,202,'2025-03-02 14:55:21',0,0,0,0,'20.33',2,'',0,'4',1,'12.33',1,'1,0,1,0','520267c34d40907114_55474986.png','0.59','2/2'),
-(8,'Product 2','product-2-1',1,230,200,0,1,32,202,'2025-03-03 22:08:00',0,0,0,0,'',0,'',0,'',0,'',0,'1,0,0,0','820267c351e553ae44_94910259.png','0.29','3/2'),
-(9,'Product 9','product-2-2',1,200,100,0,1,40,201,'2025-03-10 23:20:27',0,0,0,0,'20.33',2,'25.25',1,'0',0,'12.33',1,'1,0,1,0','920267c5d9773513c1_86930648.png','0','2/2');
+insert  into `products`(`id`,`name`,`slug`,`currency`,`price`,`offer`,`feature`,`active`,`admin_stop`,`category_id`,`user_id`,`created_at`,`view`,`wish`,`pending`,`drive_pending`,`attr_size`,`attr_size_unit`,`attr_weight`,`attr_weight_unit`,`attr_purity`,`attr_purity_unit`,`attr_volume`,`attr_volume_unit`,`files`,`featured_image`,`total_space`,`total_files`) values 
+(1,'Product 1','product-1',1,200,100,1,1,0,37,202,'2025-03-02 20:25:53',168,12,0,0,'20.33',1,'25.25',1,'1',1,'12.33',1,'1,1,1,0','120267c33bebd659a5_85612588.png','0.3','3/2'),
+(3,'Product 2','product-2',1,230,110,1,1,0,43,202,'2025-03-04 03:38:14',232,25,0,0,'20.33',3,'',0,'5',2,'12.38',4,'1,1,0,1','320267c33ccce3a403_70182172.png','0.59','3/1'),
+(5,'Product 3','product-3',2,30,25,0,1,0,35,202,'2025-03-02 20:25:21',214,5,0,0,'20.33',2,'',0,'4',1,'12.33',1,'1,0,1,0','520267c34d40907114_55474986.png','0.59','2/2'),
+(8,'Product 2','product-2-1',1,230,200,0,1,0,32,202,'2025-03-04 03:38:00',210,0,0,0,'',0,'',0,'',0,'',0,'1,0,0,0','820267c351e553ae44_94910259.png','0.29','3/2'),
+(9,'Product 9','product-2-2',1,200,100,1,0,0,40,201,'2025-03-11 04:50:27',184,0,0,0,'20.33',2,'25.25',1,'0',0,'12.33',1,'1,0,1,0','920267c5d9773513c1_86930648.png','0','2/2'),
+(10,'Tiger ring','tiger-ring',1,200,150,0,1,0,36,201,'2025-03-12 17:50:34',208,8,1,1,'',0,'',0,'0',0,'',0,'0,1,0,0','1020167d17c97ed1fc5_61839782.png',NULL,NULL);
 
 /*Table structure for table `products_files` */
 
@@ -2252,7 +2255,7 @@ CREATE TABLE `products_files` (
   `drive_link` blob DEFAULT NULL,
   `size` varchar(20) DEFAULT NULL COMMENT 'mb',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `products_files` */
 
@@ -2272,7 +2275,9 @@ insert  into `products_files`(`id`,`product_id`,`file_image`,`file_name`,`type`,
 (14,9,'920267c5d9773513c1_86930648.png','default_img.png',0,NULL,'0.24'),
 (15,9,'920267c5d97f1e7691_46348203.png','pay4.png',0,NULL,'0.03'),
 (16,9,'9202174101961467c5d9de1a79b9_32614687.zip','milkbiaeapddfnpenedfgbfdacpbcbam.zip',1,'1e26NJ96K07re6aRg-EKIM75Th0SxU3Te','0.02'),
-(17,9,'9202174101962867c5d9ec06f299_76785102.py','aa.py',1,'1X4hbNlfBZlgAZQWG23Df3Yf5UOyiauLp','0');
+(17,9,'9202174101962867c5d9ec06f299_76785102.py','aa.py',1,'1X4hbNlfBZlgAZQWG23Df3Yf5UOyiauLp','0'),
+(18,10,'1020167d17c97ed1fc5_61839782.png','arrow.png',0,NULL,'0'),
+(19,10,'10201174178221167d17cc3c95ed4_05996803.pdf','zoo.pdf',1,NULL,'0.03');
 
 /*Table structure for table `register_user` */
 
@@ -2284,6 +2289,9 @@ CREATE TABLE `register_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `register_user` */
+
+insert  into `register_user`(`email`,`otp`) values 
+('mohasin813@gmail.com','999999');
 
 /*Table structure for table `sales` */
 
@@ -2304,12 +2312,12 @@ CREATE TABLE `sales` (
 /*Data for the table `sales` */
 
 insert  into `sales`(`id`,`product_id`,`seller_id`,`buyer_id`,`payment_id`,`created_at`,`currency`,`amount`) values 
-(1,1,202,202,1,'2025-03-10 21:44:50',1,'100'),
-(2,5,202,202,1,'2025-03-10 21:44:50',1,'100'),
-(3,9,201,202,1,'2025-03-10 21:44:50',1,'2185.31'),
-(4,1,202,202,2,'2025-03-10 22:51:45',2,'1.14'),
-(5,5,202,202,2,'2025-03-10 22:51:45',2,'1.14'),
-(6,9,201,202,2,'2025-03-10 22:51:45',2,'25');
+(1,1,202,202,1,'2025-03-11 03:14:50',1,'100'),
+(2,5,202,202,1,'2025-03-11 03:14:50',1,'100'),
+(3,9,201,202,1,'2025-03-11 03:14:50',1,'2185.31'),
+(4,1,202,202,2,'2025-03-11 04:21:45',2,'1.14'),
+(5,5,202,202,2,'2025-03-11 04:21:45',2,'1.14'),
+(6,9,201,202,2,'2025-03-11 04:21:45',2,'25');
 
 /*Table structure for table `sales_payment` */
 
@@ -2341,7 +2349,7 @@ CREATE TABLE `seller_payment` (
   `amount_usd` varchar(255) DEFAULT NULL,
   `paid_at` date DEFAULT NULL,
   `payment_details` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `description` blob DEFAULT NULL,
   `unique_id` blob DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -2350,8 +2358,8 @@ CREATE TABLE `seller_payment` (
 /*Data for the table `seller_payment` */
 
 insert  into `seller_payment`(`id`,`seller`,`amount_inr`,`amount_usd`,`paid_at`,`payment_details`,`created_at`,`description`,`unique_id`) values 
-(3,201,'200','0','2025-03-12','note','2025-03-12 15:05:04',NULL,'payid'),
-(4,201,'0','2','2025-03-11','note usd','2025-03-12 15:05:05',NULL,'payidusd');
+(3,201,'200','0','2025-03-12','note','2025-03-12 20:35:04',NULL,'payid'),
+(4,201,'0','2','2025-03-11','note usd','2025-03-12 20:35:05',NULL,'payidusd');
 
 /*Table structure for table `temp_uploads` */
 
@@ -2381,7 +2389,7 @@ CREATE TABLE `users` (
   `is_saller` tinyint(1) NOT NULL,
   `country` int(11) DEFAULT NULL,
   `del_flg` tinyint(1) DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `payment_id` varchar(255) DEFAULT NULL,
   `folder_id` varchar(255) DEFAULT NULL,
   `user_type` int(1) DEFAULT 0 COMMENT '0user, 2admin_user, 9admin',
@@ -2396,12 +2404,12 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`name`,`email`,`mobile_no`,`whatsapp_no`,`password`,`is_saller`,`country`,`del_flg`,`created_at`,`payment_id`,`folder_id`,`user_type`,`otp`,`currency`,`pincode`) values 
-(1,'Admin','admin@gmail.com',NULL,'000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,0,'2025-03-12 15:05:35','','1mJYxctQ9oD3hGP6zSQua2WTT8dwISo-y',9,NULL,1,NULL),
-(39,'mohasin kayal','admin_user@gmail.com','6305228069','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,0,'2025-03-12 15:05:36','','1lDbhAWaKG-4Ep3ToFCjVSjdAcMZQiR99',2,NULL,1,NULL),
-(40,'tofajul','seller@gmail.com','9640632283','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,NULL,0,'2025-03-12 15:05:37','cus_PPSRtubHp7xUHn','13s5EUYsQuOorkUGAXnOCvPezAhh6vLcs',0,NULL,1,NULL),
-(200,'aaaa','buyer@gmail.com','1111111111','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,1,'2025-03-12 15:05:38',NULL,NULL,0,NULL,1,NULL),
-(201,'Arindam Seller','sellera@gmail.com','1111111112','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,101,0,'2025-03-12 15:05:40','123@upi',NULL,0,NULL,1,'700000'),
-(202,'Seller AA','selleraa@gmail.com','5555555555','5555555555','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,NULL,0,'2025-02-27 18:21:04',NULL,'1fG0h7abNdluKZ0OBwTUHx5muFPvc24rE',0,NULL,1,NULL);
+(1,'Admin','admin@gmail.com',NULL,'000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,0,'2025-03-12 20:35:35','','1mJYxctQ9oD3hGP6zSQua2WTT8dwISo-y',9,NULL,1,NULL),
+(39,'mohasin kayal','admin_user@gmail.com','6305228069','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,0,'2025-03-12 20:35:36','','1lDbhAWaKG-4Ep3ToFCjVSjdAcMZQiR99',2,NULL,1,NULL),
+(40,'tofajul','seller@gmail.com','9640632283','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,NULL,0,'2025-03-12 20:35:37','cus_PPSRtubHp7xUHn','13s5EUYsQuOorkUGAXnOCvPezAhh6vLcs',0,NULL,1,NULL),
+(200,'aaaa','buyer@gmail.com','1111111111','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',0,NULL,1,'2025-03-12 20:35:38',NULL,NULL,0,NULL,1,NULL),
+(201,'Arindam Seller','sellera@gmail.com','1111111112','000000','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,101,0,'2025-03-12 20:35:40','123@upi',NULL,0,NULL,1,'700000'),
+(202,'Seller AA','selleraa@gmail.com','5555555555','5555555555','$2y$10$yQRdVHT/.wCcRyhZ83rHV.4VoJ2W1GoehdzDl1RneMxLNcdjtQBly',1,NULL,0,'2025-02-27 23:51:04',NULL,'1fG0h7abNdluKZ0OBwTUHx5muFPvc24rE',0,NULL,1,NULL);
 
 /*Table structure for table `wishlist_cart` */
 
@@ -2413,13 +2421,15 @@ CREATE TABLE `wishlist_cart` (
   `wishlist` int(11) DEFAULT NULL,
   `cart` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `wishlist_cart` */
 
 insert  into `wishlist_cart`(`id`,`user_id`,`wishlist`,`cart`) values 
 (6,202,8,NULL),
-(26,202,1,NULL);
+(26,202,1,NULL),
+(46,1,NULL,8),
+(47,1,8,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

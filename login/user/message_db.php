@@ -175,6 +175,29 @@ switch ($action) {
             }
         }
 
+
+        $sql="SELECT `reply` FROM `message` WHERE `id`='$id'";
+        $query = $pdoconn->prepare($sql);
+        $query->execute();
+        $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
+        $reply=$my_arr[0]['reply'];
+
+
+
+        $jsonFilePath = '../message/'.$reply.'.json';
+        if (file_exists($jsonFilePath)) {
+            $jsonData = file_get_contents($jsonFilePath);
+            $dataArray = json_decode($jsonData, true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                if (isset($dataArray['message'])) {
+                    $html.='<hr><h6 class="col-12 text-danger fw-bold mt-3 mb-3" >Reply Message From Admin:</h6>';
+                    $html.= $dataArray['message'];
+                }
+            }
+        }
+
+
+
         $my_arr = array('status' => 1, 'msg' => '', 'html'=> $html);
         echo json_encode($my_arr);
         break;

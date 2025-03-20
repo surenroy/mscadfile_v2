@@ -1,5 +1,4 @@
 <?php
-set_time_limit(1800);
 ob_start();
 if (!isset($_SESSION)) session_start();
 include_once("../../connection-pdo.php");
@@ -84,6 +83,7 @@ switch ($action) {
                     <td><img src="' . $site_url . 'product_images/' . $featured_image . '" class="pr_img" alt="' . $slug . '"></td>
                     <td>
                         <button class="btn btn-sm btn-warning mx-1 p-1 px-2" onclick="load_files('.$id.')"><i class="fa-solid fa-eye"></i></button>
+                        <button class="btn btn-sm btn-dark mx-1 p-1 px-2" onclick="start_process('.$id.')"><i class="fa-solid fa-file-export"></i></button>
                     </td>
                     <td>' . $unique_id . '</td>
                     <td>' . $currencySymbol . $amount . '</td>
@@ -121,24 +121,58 @@ switch ($action) {
            exit();
        }
 
-        $sql="SELECT `file_image`,`drive_link`,`size` FROM `products_files` WHERE `type`=1 AND `product_id`='$id'";
+        $sql="SELECT `id`,`file_image`,`drive_link`,`size` FROM `products_files` WHERE `type`=1 AND `product_id`='$id'";
         $query = $pdoconn->prepare($sql);
         $query->execute();
         $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
 
+        $i=1;
         foreach ($my_arr as $val) {
+            $idf = $val['id'];
             $name=$val['file_image'];
             $drive_link=$val['drive_link'];
             $size=$val['size'];
 
-            $html .= '<tr>
+            $sql="SELECT `id`,`complete` FROM `download_files` WHERE `file_url`='$name'";
+            $query = $pdoconn->prepare($sql);
+            $query->execute();
+            $my_arr2 = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            if(count($my_arr2)==0){
+                $html .= '<tr>
                 <td>'.$name.'</td>
                 <td>'.$size.'</td>
                 <td>
-                    <a target="_blank" href="https://drive.google.com/uc?export=download&id='.$drive_link.'" download><i class="fa-solid fa-download"></i></a>
                 </td>
             </tr>';
+            }else{
+                $sql="UPDATE `download_files` SET `created_at`=NOW() WHERE `file_url`='$name'";
+                $query = $pdoconn->prepare($sql);
+                $query->execute();
 
+
+                $complete = $my_arr2[0]['complete'];
+                if($complete==0){
+                    $html .= '<tr>
+                <td>'.$name.'</td>
+                <td>'.$size.'</td>
+                <td>
+                </td>
+            </tr>';
+                }else{
+                    $html .= '<tr>
+                <td>'.$name.'</td>
+                <td>'.$size.'</td>
+                <td>
+                    <a href="'.$site_url.'file_download/'.$name.'" class="btn btn-sm btn-danger" target="_blank"><i class="fa-solid fa-download"></i></a>
+                </td>
+            </tr>';
+                }
+            }
+
+
+
+            $i=$i+1;
         }
 
 
@@ -149,8 +183,17 @@ switch ($action) {
 
 
 
+
+
+
+
+
+    case 'start_process':
+        $product_id=$_POST['product_id'];
+
+        $logFile = 'logfile.log';
+        $command = 'php shell.php "' . escapeshellarg($product_id) . '" >> ' . escapeshellarg($logFile) . ' 2>&1 &';
+        shell_exec($command);
+        break;
+
 }
-
-
-
-

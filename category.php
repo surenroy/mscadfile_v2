@@ -40,15 +40,15 @@ include_once ('header.php');
                 $cnt=0;
             }
 
-            $url = $site_url . 'category/?name=' . $slug;
+            $url = '../category/category.php?name=' . $slug;
+
+            echo '<a class="category-item-big col-sm-2 mx-2 mt-3 text-decoration-none" href="'.$url.'">
             
-            echo '<div class="category-item-big col-sm-2 mx-2 mt-3">
-            <a href="' . $url . '">
             <span class="counter">' . $cnt . '</span>
             <div class="category-name">' . $name . '</div>
             <img src="' . $filepath . '" alt="' . $slug . '">
-            </a>
-          </div>';
+            
+          </a>';
 
         }
 

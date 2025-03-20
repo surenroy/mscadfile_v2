@@ -73,6 +73,7 @@ include_once('header.php');
             </tr>';
 
                 if (isset($_SESSION["user_id"])) {
+                    $user_type=$_SESSION["user_type"];
 
                     $user_currency = $_COOKIE['user_currency'];
                     $user_currency_txt = ($user_currency == 1) ? 'INR' : 'USD';
@@ -161,7 +162,7 @@ include_once('header.php');
 
                             $html .= '<tr>
                 <td><a href="'.$site_url.'product/?name='.$slug.'" class="text-decoration-none fw-bold text-dark">'.$name.'</a></td>
-                <td><img src="product_images/' . $feature_image . 'v=?'.date('H').'" class="pr_img" alt="' . $slug . '"></td>
+                <td><img src="../product_images/' . $feature_image . '?v='.date('H').'" class="pr_img" alt="' . $slug . '"></td>
                 <td>
                     <del class="text-black-50 inr_price"><small>₹' . $inr_price . '</small></del> <del class="text-black-50 usd_price"><small>$' . $usd_price . '</small></del>
                 </td>
@@ -237,7 +238,7 @@ include_once('header.php');
 
         <div class="col-12 mt-3 d-flex justify-content-center flex-wrap">
             <?php
-            if (isset($_SESSION["user_id"]) && count($cartlist) > 0) {
+            if (isset($_SESSION["user_id"]) && count($cartlist) > 0 && isset($_SESSION["user_type"]) && $_SESSION["user_type"]==0) {
                 if($user_currency==1){
                     $action='./razorpay/';
                 }else{

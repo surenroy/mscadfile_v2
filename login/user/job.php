@@ -15,7 +15,7 @@ include_once ('header.php');
 
 <div id="newMessage" class="full-screen d-flex text-white d-none px-2 col-12 justify-content-between flex-wrap">
     <div class="container pt-4 pb-4 text-dark rounded">
-        <form class="col-12 p-0 m-0 d-flex justify-content-between flex-wrap flex-row">
+        <div class="col-12 p-0 m-0 d-flex justify-content-between flex-wrap flex-row">
             <div class="row g-2 mb-3 col-sm-4 p-0 m-0 d-flex justify-content-between flex-wrap">
                 <div class="col-md-12">
                     <label class="form-label col-12 w-100 fw-bold">Job Image</label>
@@ -41,7 +41,7 @@ include_once ('header.php');
             <div class="col-12 text-center">
                 <button onclick="submit_job()" id="blog_btn" class="btn btn-danger col-12 top_page_button text-center">Submit</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 

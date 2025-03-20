@@ -10,7 +10,9 @@ include_once ('header.php');
 
 
 <div id="sentMessage" class="full-screen d-flex text-white px-2 col-12 justify-content-between flex-wrap">
-    <div class="container-fluid pt-4 pb-4 text-dark rounded">
+    <p class="text-center col-12 pt-2 text-dark">To Download files for a product, start processing by click <button class="btn btn-sm btn-dark mx-1 p-1 px-2"><i class="fa-solid fa-file-export"></i></button> button. It will process your file which are ready to download. Then after some time you will get links while you click <button class="btn btn-sm btn-warning mx-1 p-1 px-2"><i class="fa-solid fa-eye"></i></button></p>
+
+    <div class="container-fluid pt-2 pb-4 text-dark rounded">
         <div class="table-responsive">
             <table class="table table-bordered table-hover table_center" id="order_table">
                 <thead class="table-dark">
@@ -58,7 +60,7 @@ include_once ('header.php');
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
             </div>
         </div>
     </div>

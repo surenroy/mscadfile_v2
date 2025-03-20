@@ -82,11 +82,6 @@ if($user_type!=0){
                 <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>logout.php">Logout</a></li>
 
 
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>login/user/users.php">A Users</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>login/user/blog.php">A Blog</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>login/user/sells.php">A Sell</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-bold px-2 py-1" href="<?php echo $site_url; ?>login/user/category.php">A Category</a></li>
-
             </ul>
         </div>
     </div>

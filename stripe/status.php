@@ -117,6 +117,9 @@ try {
                 <i class="status-icon fas fa-check-circle" style="font-size: 70pt; margin-bottom: 15px;"></i>
                 <h2>Payment Successful!</h2>
                 <p>Your payment ID is: <strong><?php echo htmlspecialchars($paymentID); ?></strong></p>
+
+                <a class="btn btn-dark btn-sm" href="<?php echo $site_url; ?>login/user/order.php">Go to Download List</a>
+
             </div>
         <?php else: ?>
             <div class="text-danger">

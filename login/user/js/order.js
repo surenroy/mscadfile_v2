@@ -11,6 +11,10 @@ $(document).ready(function () {
 });
 
 
+function process_dnl(){
+    alert_js('File Processing. Come Back After some time to Download the file.','Alert.');
+}
+
 
 function load_order(){
     $.ajax({
@@ -36,6 +40,28 @@ function load_order(){
             }else {
                 alert_js(data.msg,'Error Found');
             }
+        }
+    }).responseText;
+}
+
+
+
+function start_process(product_id){
+    alert_js('File Processing. Come Back After some time to Download All file.','Process');
+    $.ajax({
+        url :'order_db.php',
+        type:'POST',
+        dataType:'html',
+        data :{
+            'action':'start_process',
+            'product_id':product_id
+        },
+        beforeSend:function(){
+
+        },
+        async: true,
+        success  :function(data){
+            console.log(data);
         }
     }).responseText;
 }

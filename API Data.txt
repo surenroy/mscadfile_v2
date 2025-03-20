@@ -12,14 +12,34 @@ Acc Token: ya29.a0AXeO80TKfo8GVV4YkI0oeM5xzZBDC6ysvkwz4Om6veyhwj4avDd_53GmydaQk9
 
 
 
+##Old Data
 Need All Category Image by ID.jpg (All Prev Data Pending)
+
+##chat GPT
 SEO Data generation (ChatGPT Pending)
-Set Upload Folder Size (Max Limit) (in Product.db)
-Needs to change file upload limits on server ini
-cron 1h for file uploads & delete of products based on pre+1 day which have no files. (Add to cronjob)
-show product page on front (link list product view).. same for blog
+
+##final server
+Set Upload Folder Size (Max Limit) (in Product.db & js)
 remove 10mb limit from product page & 50mb from product.db
-Job (Pre defined text)
+Needs to change file upload limits on server ini
+
+
+
+#cron
+cron for file uploads [Drive Upload, Every 1 hour/30 min]
+delete of products based on pre+1 day which have no files [pending product delete, Every 1 day]
+Delete download files -1h [del_dnl_products, every 1 hour]
 increase view & wishlist hourly
+
+
+
+
+#pending
+Job (Pre defined text Pending)
+
+
+
+
+
 
 

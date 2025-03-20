@@ -177,7 +177,7 @@ function all_search() {
 
     var finalUrl = `${site_url}search/?product=${encodedSearchStr}`;
 
-    window.location.href = finalUrl; 
+    window.location.href = finalUrl;
 }
 
 
@@ -635,8 +635,7 @@ function isValidEmail(email) {
 }
 
 function openInNewTab(url) {
-    const newTab = window.open(url, '_blank');
-    newTab.focus();
+    window.location.href = url;
 }
 
 function toggleMenu() {
