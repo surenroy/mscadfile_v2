@@ -193,7 +193,7 @@
                     <input type="number" class="form-control form-control-sm w-100 mb-2 register_inp d-none" placeholder="Email OTP" id="register_otp">
 
                     <div class="input-group mb-2 register_inp d-none">
-                        <select class="form-control form-control-sm" id="mobile_country">
+                        <select class="form-control form-control-sm w-25" id="mobile_country">
                             <option value="0" disabled selected>Select Country</option>
                             <?php foreach ($my_countryarr as $country): ?>
                                 <option value="<?php echo $country['id']; ?>">
@@ -201,12 +201,12 @@
                                 </option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="number" class="form-control form-control-sm" placeholder="Mobile Number" id="register_mobile">
+                        <input type="number" class="form-control form-control-sm w-75" placeholder="Mobile Number" id="register_mobile">
                     </div>
 
 
                     <div class="input-group mb-2 register_inp d-none">
-                        <select class="form-control form-control-sm" id="whatsapp_country">
+                        <select class="form-control form-control-sm w-25" id="whatsapp_country">
                             <option value="0" disabled selected>Select Country</option>
                             <?php foreach ($my_countryarr as $country): ?>
                                 <option value="<?php echo $country['id']; ?>">
@@ -214,7 +214,7 @@
                                 </option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="number" class="form-control form-control-sm" placeholder="Whatsapp Number" id="register_whatsapp">
+                        <input type="number" class="form-control form-control-sm w-75" placeholder="Whatsapp Number" id="register_whatsapp">
                     </div>
                     <input type="text" class="form-control form-control-sm w-100 mb-2 register_inp d-none" placeholder="New Password" maxlength="20" id="register_password">
                     <input type="password" class="form-control form-control-sm w-100 mb-2 register_inp d-none" placeholder="Verify Password" maxlength="20" id="register_password_verify">

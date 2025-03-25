@@ -13,6 +13,7 @@ function showDiv(id) {
         $('.btn2').removeClass('btn-primary');
         $('.btn3').addClass('btn-outline-primary');
         $('.btn3').removeClass('btn-primary');
+        document.title = "New Job";
     }else if(id==2){
         $('#newMessage').addClass('d-none');
         $('#inboxMessage').removeClass('d-none');
@@ -23,7 +24,7 @@ function showDiv(id) {
         $('.btn1').removeClass('btn-primary');
         $('.btn3').addClass('btn-outline-primary');
         $('.btn3').removeClass('btn-primary');
-
+        document.title = "Other's Job";
         load_other();
     }else{
         $('#newMessage').addClass('d-none');
@@ -35,7 +36,7 @@ function showDiv(id) {
         $('.btn2').removeClass('btn-primary');
         $('.btn1').addClass('btn-outline-primary');
         $('.btn1').removeClass('btn-primary');
-
+        document.title = "My Jobs";
         load_my();
     }
 }

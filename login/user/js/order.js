@@ -8,6 +8,7 @@ $(document).ready(function () {
     $('.atn').filter_input({regex: '[A-Za-z0-9]'});
 
     load_order();
+    document.title = "My Orders";
 });
 
 

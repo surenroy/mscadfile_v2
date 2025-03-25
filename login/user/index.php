@@ -61,6 +61,11 @@ include_once ('header.php');
 
 
 <script>
+    $(document).ready(function() {
+        document.title = "Dashboard";
+    });
+
+
     function toggleModal() {
         const modal = document.getElementById("popupForm");
         modal.style.display = (modal.style.display === "block") ? "none" : "block";

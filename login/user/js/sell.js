@@ -11,6 +11,7 @@ function showDiv(id) {
         $('.btn2').removeClass('btn-primary');
         $('#productListDiv').addClass('d-none');
         load_sell();
+        document.title = "My Sales";
     }else{
         $('#newProductDiv').addClass('d-none');
         $('#productListDiv').removeClass('d-none');
@@ -19,6 +20,7 @@ function showDiv(id) {
         $('.btn2').removeClass('btn-outline-primary');
         $('.btn1').removeClass('btn-primary');
         load_payment();
+        document.title = "My Payments";
     }
 }
 

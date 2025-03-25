@@ -18,6 +18,7 @@ function showDiv(id) {
         $('.btn1').removeClass('btn-outline-primary');
         $('.btn2').removeClass('btn-primary');
         $('#productListDiv').addClass('d-none');
+        document.title = "New Product";
     }else{
         $('#newProductDiv').addClass('d-none');
         $('#productListDiv').removeClass('d-none');
@@ -25,7 +26,7 @@ function showDiv(id) {
         $('.btn1').addClass('btn-outline-primary');
         $('.btn2').removeClass('btn-outline-primary');
         $('.btn1').removeClass('btn-primary');
-
+        document.title = "Product List";
         load_product();
     }
 }
