@@ -32,28 +32,6 @@ if($user_type!=9){
 
 switch ($action) {
 
-    case 'load_data':
-        $html='';
-
-        $sql="SELECT `name`,`email`,`mobile_no`,`whatsapp_no`,`currency`,`pincode`,IFNULL(`country`,0) AS country,`payment_id` FROM `users` WHERE `id`='$user_id'";
-        $query = $pdoconn->prepare($sql);
-        $query->execute();
-        $my_arr = $query->fetchAll(PDO::FETCH_ASSOC);
-
-        $name=$my_arr[0]['name'];
-        $email=$my_arr[0]['email'];
-        $mobile_no=$my_arr[0]['mobile_no'];
-        $whatsapp_no=$my_arr[0]['whatsapp_no'];
-        $country=$my_arr[0]['country'];
-        $payment_id=$my_arr[0]['payment_id'];
-        $currency=$my_arr[0]['currency'];
-        $pincode=$my_arr[0]['pincode'];
-
-
-        $my_arr = array('status' => 1, 'name'=> $name, 'email'=> $email, 'mobile'=> $mobile_no, 'whatsapp'=> $whatsapp_no,
-                        'country'=> $country, 'upi'=> $payment_id, 'currency'=> $currency, 'pincode'=> $pincode);
-        echo json_encode($my_arr);
-        break;
 
     case 'update_data':
         $success = 0;
@@ -63,12 +41,12 @@ switch ($action) {
         $mobile = strip_tags($_POST['mobile']);
         $whatsapp = strip_tags($_POST['whatsapp']);
         $pincode = strip_tags($_POST['pincode']);
-        $currency = strip_tags($_POST['currency']);
+        $whatsapp_country = strip_tags($_POST['whatsapp_country']);
         $upi = strip_tags($_POST['upi']);
-        $country = strip_tags($_POST['country']);
+        $mobile_country = strip_tags($_POST['mobile_country']);
 
-        $sql="UPDATE `users` SET `name`='$name',`mobile_no`='$mobile',`whatsapp_no`='$whatsapp',`country`='$country',
-                   `payment_id`='$upi',`currency`='$currency',`pincode`='$pincode' WHERE `id`='$user_id'";
+        $sql="UPDATE `users` SET `name`='$name',`mobile_no`='$mobile',`whatsapp_no`='$whatsapp',`country_mob`='$mobile_country',
+                   `payment_id`='$upi',`country_wp`='$whatsapp_country',`pincode`='$pincode' WHERE `id`='$user_id'";
         $query = $pdoconn->prepare($sql);
         if($query->execute()){
             $my_arr = array('status' => 1, 'msg' => 'Successfully Updated');

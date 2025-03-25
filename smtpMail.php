@@ -9,7 +9,7 @@ require 'vendor/autoload.php';
 
 //
 //$response=sendSMTPMail(
-//    toEmail: 'surenroy@electrocompsystem.com',
+//    toEmail: 'arindam.personal.25119@gmail.com',
 //    name: 'John Doe123',
 //    subject: 'OTP For Mscadfile.com',
 //    otp: 123456

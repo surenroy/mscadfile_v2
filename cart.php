@@ -240,9 +240,9 @@ include_once('header.php');
             <?php
             if (isset($_SESSION["user_id"]) && count($cartlist) > 0 && isset($_SESSION["user_type"]) && $_SESSION["user_type"]==0) {
                 if($user_currency==1){
-                    $action='./razorpay/';
+                    $action=$site_url.'/razorpay/';
                 }else{
-                    $action='./stripe/';
+                    $action=$site_url.'/stripe/';
                 }
 
                 echo '<form id="paymentForm" method="post" action="'.$action.'">
@@ -255,7 +255,7 @@ include_once('header.php');
                             <input type="hidden" name="user_id" value="'.$user_id.'">
                             <input class="form-check-input" type="radio" name="payment_gateway" id="razorpay" value="razorpay" checked>
                             <div class="gateway-card">
-                                <img src="./images/razorpay.png" alt="Razorpay">
+                                <img src="'.$site_url.'/images/razorpay.png" alt="Razorpay">
                                 <p class="m-0">Pay using Razorpay</p>
                             </div>
                         </label>';
@@ -266,7 +266,7 @@ include_once('header.php');
                             <input type="hidden" name="user_id" value="'.$user_id.'">
                             <input class="form-check-input" type="radio" name="payment_gateway" id="stripe" value="stripe" checked>
                             <div class="gateway-card">
-                                <img src="./images/stripe.jpg" alt="Stripe">
+                                <img src="'.$site_url.'/images/stripe.jpg" alt="Stripe">
                                 <p class="m-0">Pay using Stripe</p>
                             </div>
                         </label>';

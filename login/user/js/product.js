@@ -365,9 +365,9 @@ function previewImage(input, previewId, imageId) {
             return false;
         }
 
-        let maxSize = 300 * 1024;
+        let maxSize = 1024 * 1024;
         if (file.size > maxSize) {
-            alert_js('File size exceeds the 300 KB limit.', 'Alert');
+            alert_js('File size exceeds the 1 mb limit.', 'Alert');
             document.getElementById('input1').value = '';
             document.getElementById('input1').disabled = false;
             return false;

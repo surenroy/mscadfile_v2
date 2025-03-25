@@ -1,46 +1,7 @@
 $(document).ready(function(){
-    load_data();
+
 });
 
-
-function load_data(){
-    $.ajax({
-        url :'profile_db.php',
-        type:'POST',
-        dataType:'json',
-        data :{
-            'action':'load_data'
-        },
-        beforeSend:function(){
-            $('#name').val('');
-            $('#email').val('');
-            $('#mobile').val('');
-            $('#whatsapp').val('');
-            $('#pincode').val('');
-            $('#currency').val(0);
-            $('#upi').val('');
-            $('#country').val(0);
-        },
-        async: false,
-        success  :function(data){
-            if(data.status==1){
-                $('#name').val(data.name);
-                $('#email').val(data.email);
-                $('#mobile').val(data.mobile);
-                $('#whatsapp').val(data.whatsapp);
-                $('#pincode').val(data.pincode);
-                $('#currency').val(data.currency);
-                $('#upi').val(data.upi);
-                $('#country').val(data.country);
-            }else {
-                alert_js(data.msg,'Error Found');
-            }
-        }
-    }).responseText;
-
-
-
-}
 
 
 
@@ -50,9 +11,9 @@ function update_data() {
     var mobile=$("#mobile").val();
     var whatsapp=$("#whatsapp").val();
     var pincode=$("#pincode").val();
-    var currency=$("#currency").val();
+    var mobile_country=$("#mobile_country").val();
     var upi=$("#upi").val();
-    var country=$("#country").val();
+    var whatsapp_country=$("#whatsapp_country").val();
 
     if (name==''){
         alert_js('Please Input Your Name','Alert');
@@ -70,13 +31,13 @@ function update_data() {
         alert_js('Please Input Your Pincode','Alert');
         $('#pincode').focus();
         return false;
-    }else if (currency==''){
-        alert_js('Please Choose Your Currency','Alert');
-        $('#currency').focus();
-        return false;
-    }else if (country==''){
+    }else if (mobile_country==0){
         alert_js('Please Choose Your Country','Alert');
-        $('#country').focus();
+        $('#mobile_country').focus();
+        return false;
+    }else if (whatsapp_country==0){
+        alert_js('Please Choose Your Country','Alert');
+        $('#whatsapp_country').focus();
         return false;
     }
 
@@ -91,9 +52,9 @@ function update_data() {
             'mobile':mobile,
             'whatsapp':whatsapp,
             'pincode':pincode,
-            'currency':currency,
+            'whatsapp_country':whatsapp_country,
             'upi':upi,
-            'country':country
+            'mobile_country':mobile_country
         },
         beforeSend:function(){
             $('#submit_btn').prop("disabled", true);
@@ -101,7 +62,7 @@ function update_data() {
         async: false,
         success  :function(data){
             if(data.status==1){
-                load_data();
+                location.reload();
                 alert_js('Updated Successfully.','Alert');
             }else {
                 alert_js(data.msg,'Error Found');

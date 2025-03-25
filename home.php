@@ -86,10 +86,10 @@ include_once ('header.php');
 
             $url = $site_url . 'category/?name=' . $slug;
 
-            echo '<div class="category-item"  onclick="openCategoryUrl(this)" data-url="' . $url . '">
+            echo '<a class="category-item text-decoration-none"  href="' . $url . '">
                 <img loading="lazy" height="150" width="150" src="' . $site_url . 'category_img/' . $id . '.jpg?v='.date('H').'" alt="Category">
                 <div class="category-name">' . $name . '</div>
-            </div>';
+            </a>';
         }
         ?>
 

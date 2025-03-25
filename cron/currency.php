@@ -1,5 +1,6 @@
 <?php
-include_once("../connection-pdo.php");
+include_once('/home/arindam.co.in/mscad/connection-pdo.php');
+
 
 
 $url = "https://open.er-api.com/v6/latest/INR";

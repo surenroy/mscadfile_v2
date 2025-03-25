@@ -1,4 +1,8 @@
 <?php
+
+//phpinfo();
+
+
 die();
 include_once("connection-pdo.php");
 

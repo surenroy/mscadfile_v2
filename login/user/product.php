@@ -260,7 +260,7 @@ if ($is_saller != 1) {
 
                     <div class="row g-2 mb-3 col-5 p-0 m-0 d-flex flex-row flex-wrap justify-content-start">
                         <div class="col-sm-12" id="image1">
-                            <label class="form-label col-12 w-100 fw-bold">Image Upload (.jpg/.jpeg/.png) <300kb</label>
+                            <label class="form-label col-12 w-100 fw-bold">Image Upload (.jpg/.jpeg/.png) <1mb</label>
                             <small>1st Image will be the Featured Image</small>
                             <input type="file" accept=".jpg,.jpeg,.png" class="form-control form-control-sm col-12 mb-2 w-100" id="input1" onchange="previewImage(this, 'preview1', '1', 'progressBar1')">
                             <div class="progress mt-2 d-none" id="progressBar1Container">

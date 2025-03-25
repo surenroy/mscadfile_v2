@@ -1,5 +1,7 @@
 <?php
-include_once("../connection-pdo.php");
+#include_once("../connection-pdo.php");
+include_once('/home/arindam.co.in/mscad/connection-pdo.php');
+
 $timeMinusOneHour = date('Y-m-d H:i:s', strtotime('-1 hour'));
 
 $sql = "SELECT `id`,`file_url` FROM `download_files` WHERE DATE_FORMAT(`created_at`,'%Y-%m-%d %H:%i:%s')<='$timeMinusOneHour'";
@@ -11,7 +13,7 @@ foreach ($my_arr as $val) {
     $file_url = $val['file_url'];
 
 
-    $filePath = '../file_download/' . $file_url;
+    $filePath = '/home/arindam.co.in/mscad/file_download/' . $file_url;
     if (file_exists($filePath)) {
         unlink($filePath);
     }

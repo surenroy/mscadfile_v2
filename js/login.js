@@ -97,6 +97,7 @@ function register_otp(){
                 if(data.status==1){
                     var counter = 120;
                     button.text('OTP Sent. Resend in ' + counter + 's');
+                    $('.register_inp').removeClass('d-none');
                     var interval = setInterval(function(){
                         counter--;
                         button.text('OTP Sent. Resend in ' + counter + 's');
@@ -127,6 +128,9 @@ function register_user(){
     var register_password=$("#register_password").val();
     var register_password_verify=$("#register_password_verify").val();
 
+    var mobile_country=$("#mobile_country").val();
+    var whatsapp_country=$("#whatsapp_country").val();
+
     if (register_email==''){
         alert_js('Please Input Your Email ID','Alert');
         $('#register_email').focus();
@@ -154,6 +158,14 @@ function register_user(){
     }else if (register_password_verify==''){
         alert_js('Please Input Your Password Again','Alert');
         $('#register_password_verify').focus();
+        return false;
+    }else if (mobile_country=='0'){
+        alert_js('Please Select Country Code For Mobile','Alert');
+        $('#mobile_country').focus();
+        return false;
+    }else if (whatsapp_country=='0'){
+        alert_js('Please Select Country Code For Whatsapp','Alert');
+        $('#whatsapp_country').focus();
         return false;
     }
 
@@ -189,7 +201,9 @@ function register_user(){
             'register_mobile':register_mobile,
             'register_whatsapp':register_whatsapp,
             'register_password':register_password,
-            'register_seller':register_seller
+            'register_seller':register_seller,
+            'mobile_country':mobile_country,
+            'whatsapp_country':whatsapp_country
         },
         beforeSend:function(){
 
@@ -240,6 +254,7 @@ function forget_otp(){
                 if(data.status==1){
                     var counter = 120;
                     button.text('OTP Sent. Resend in ' + counter + 's');
+                    $('.forget_pass_inp').removeClass('d-none');
                     var interval = setInterval(function(){
                         counter--;
                         button.text('OTP Sent. Resend in ' + counter + 's');

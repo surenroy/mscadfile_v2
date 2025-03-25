@@ -1,7 +1,7 @@
 <?php
 ob_start();
 set_time_limit(3600);
-include_once("../connection-pdo.php");
+include_once("/home/arindam.co.in/mscad/connection-pdo.php");
 
 $sql = "SELECT `id`, `user_id` FROM `products` WHERE `pending`=1 AND `drive_pending`=1";
 $query = $pdoconn->prepare($sql);
@@ -70,7 +70,7 @@ foreach ($my_arr as $val) {
         }
 
         $id = $val2['id'];
-        $filePath = '../product_files_temp/' . $val2['file_image'];
+        $filePath = '/home/arindam.co.in/mscad/product_files_temp/' . $val2['file_image'];
         $fileName = basename($filePath);
         $fileSize = filesize($filePath);
 
@@ -227,7 +227,7 @@ foreach ($my_arr as $val) {
                 $type = $val3['type'];
 
                 if($type==1){
-                    $filePath = '../product_files_temp/' . $file_image_delete;
+                    $filePath = '/home/arindam.co.in/mscad/product_files_temp/' . $file_image_delete;
                     if (file_exists($filePath)) {
                         unlink($filePath);
                     }

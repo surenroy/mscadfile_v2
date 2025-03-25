@@ -135,13 +135,14 @@
 
 
 
+
 <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
                 <div id="loginForm">
                     <h6 class="mb-4 mt-2 text-center">User Login</h6>
-                    <input type="email" id="login_email" class="form-control form-control-sm w-100 mb-2" placeholder="Email ID">
+                    <input type="email" id="login_email" class="form-control form-control-sm w-100 mb-2" placeholder="Email ID" maxlength="40">
                     <input type="password" id="login_password" class="form-control form-control-sm w-100 mb-2" placeholder="Password">
 
                     <div class="col-12 d-flex justify-content-between">
@@ -157,15 +158,19 @@
 
                 <div id="forgotForm" class="d-none">
                     <h6 class="mb-4 mt-2 text-center">Forget Password</h6>
-                    <input type="email" class="form-control form-control-sm w-100 mb-2" placeholder="Email ID" id="forget_email">
+                    <input type="email" class="form-control form-control-sm w-100 mb-2" placeholder="Email ID" id="forget_email" maxlength="40">
                     <button class="btn btn-secondary btn-sm w-100 mb-2 send-otp" id="forgotOtp" onclick="forget_otp()">Send OTP</button>
-                    <input type="text" class="form-control form-control-sm w-100 mb-2" placeholder="OTP" id="forget_otp">
-                    <input type="text" class="form-control form-control-sm w-100 mb-2" placeholder="New Password" id="forget_password">
-                    <input type="password" class="form-control form-control-sm w-100 mb-2" placeholder="Verify Password" id="forget_password_verify">
-                    <div class="col-12 d-flex justify-content-between">
+
+
+                    <input type="text" class="form-control form-control-sm w-100 mb-2 d-none forget_pass_inp" placeholder="OTP" id="forget_otp">
+                    <input type="text" class="form-control form-control-sm w-100 mb-2 d-none forget_pass_inp" placeholder="New Password" id="forget_password">
+                    <input type="password" class="form-control form-control-sm w-100 mb-2 d-none forget_pass_inp" placeholder="Verify Password" id="forget_password_verify">
+                    <div class="col-12 d-flex justify-content-between d-none forget_pass_inp">
                         <button class="btn btn-primary btn-sm col-sm-5" id="forget_btn" onclick="forget_password()">Update</button>
                         <button type="button" class="btn btn-sm btn-dark col-sm-5" data-bs-dismiss="modal">Close</button>
                     </div>
+
+
                     <div class="mt-3 text-center">
                         <a href="#" id="backToLogin1" class="text-decoration-none">Back to Login</a>
                     </div>
@@ -174,23 +179,56 @@
                 <div id="registerForm" class="d-none">
                     <h6 class="mb-4 mt-2 text-center">Registration</h6>
                     <input type="text" class="form-control form-control-sm w-100 mb-2" placeholder="User Name" id="register_name" maxlength="30">
-                    <input type="email" class="form-control form-control-sm w-100 mb-2" placeholder="Email ID" id="register_email" maxlength="30">
+                    <input type="email" class="form-control form-control-sm w-100 mb-2" placeholder="Email ID" id="register_email" maxlength="40">
                     <button class="btn btn-secondary btn-sm w-100 mb-2 send-otp" id="registerOtp" onclick="register_otp()">Send OTP</button>
-                    <input type="number" class="form-control form-control-sm w-100 mb-2" placeholder="Email OTP" id="register_otp">
-                    <input type="number" class="form-control form-control-sm w-100 mb-2" placeholder="Mobile Number" id="register_mobile">
-                    <input type="number" class="form-control form-control-sm w-100 mb-2" placeholder="Whatsapp Number" id="register_whatsapp">
-                    <input type="text" class="form-control form-control-sm w-100 mb-2" placeholder="New Password" maxlength="20" id="register_password">
-                    <input type="password" class="form-control form-control-sm w-100 mb-2" placeholder="Verify Password" maxlength="20" id="register_password_verify">
-                    <div class="form-check">
+
+                    <?php
+                        $sql="SELECT `id`,`country_nsme`,`code` FROM `country`";
+                        $query = $pdoconn->prepare($sql);
+                        $query->execute();
+                        $my_countryarr = $query->fetchAll(PDO::FETCH_ASSOC);
+                    ?>
+
+
+                    <input type="number" class="form-control form-control-sm w-100 mb-2 register_inp d-none" placeholder="Email OTP" id="register_otp">
+
+                    <div class="input-group mb-2 register_inp d-none">
+                        <select class="form-control form-control-sm" id="mobile_country">
+                            <option value="0" disabled selected>Select Country</option>
+                            <?php foreach ($my_countryarr as $country): ?>
+                                <option value="<?php echo $country['id']; ?>">
+                                    <?php echo $country['country_nsme'].' ('.$country['code'].')'; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="number" class="form-control form-control-sm" placeholder="Mobile Number" id="register_mobile">
+                    </div>
+
+
+                    <div class="input-group mb-2 register_inp d-none">
+                        <select class="form-control form-control-sm" id="whatsapp_country">
+                            <option value="0" disabled selected>Select Country</option>
+                            <?php foreach ($my_countryarr as $country): ?>
+                                <option value="<?php echo $country['id']; ?>">
+                                    <?php echo $country['country_nsme'].' ('.$country['code'].')'; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="number" class="form-control form-control-sm" placeholder="Whatsapp Number" id="register_whatsapp">
+                    </div>
+                    <input type="text" class="form-control form-control-sm w-100 mb-2 register_inp d-none" placeholder="New Password" maxlength="20" id="register_password">
+                    <input type="password" class="form-control form-control-sm w-100 mb-2 register_inp d-none" placeholder="Verify Password" maxlength="20" id="register_password_verify">
+                    <div class="form-check register_inp d-none">
                         <input class="form-check-input" type="checkbox" value="" id="register_seller">
                         <label class="form-check-label" for="register_seller">
                             Register as Seller?
                         </label>
                     </div>
-                    <div class="col-12 d-flex justify-content-between mt-3">
+                    <div class="col-12 d-flex justify-content-between mt-3 register_inp d-none">
                         <button class="btn btn-primary btn-sm col-sm-5" onclick="register_user()" id="register_btn">Register</button>
                         <button type="button" class="btn btn-sm btn-dark col-sm-5" data-bs-dismiss="modal">Close</button>
                     </div>
+
                     <div class="mt-2 text-center">
                         <a href="#" id="backToLogin2" class="text-decoration-none">Back to Login</a>
                     </div>

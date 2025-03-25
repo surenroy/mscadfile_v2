@@ -142,6 +142,8 @@ switch ($action) {
         $register_whatsapp = strip_tags($_POST['register_whatsapp']);
         $register_password = strip_tags($_POST['register_password']);
         $register_seller = strip_tags($_POST['register_seller']);
+        $mobile_country = strip_tags($_POST['mobile_country']);
+        $whatsapp_country = strip_tags($_POST['whatsapp_country']);
 
 
         $sql="SELECT `otp` FROM `register_user` WHERE `email`='$register_email'";
@@ -180,8 +182,8 @@ switch ($action) {
 
             $hashedPassword = password_hash($register_password, PASSWORD_BCRYPT);
 
-            $sql="INSERT INTO `users` (`name`,`email`,`mobile_no`,`whatsapp_no`,`password`,`is_saller`) VALUES 
-                    ('$register_name','$register_email','$register_mobile','$register_whatsapp','$hashedPassword','$register_seller')";
+            $sql="INSERT INTO `users` (`name`,`email`,`mobile_no`,`whatsapp_no`,`password`,`is_saller`,`country_mob`,`country_wp`) VALUES 
+                    ('$register_name','$register_email','$register_mobile','$register_whatsapp','$hashedPassword','$register_seller','$mobile_country','$whatsapp_country')";
             $query = $pdoconn->prepare($sql);
             $query->execute();
             $lastInsertId = $pdoconn->lastInsertId();
@@ -669,7 +671,7 @@ switch ($action) {
                 
                 <div class="price-tag text-start mb-2 px-1">
                     <i class="fa-solid fa-tag text-success"></i> 
-                        <del class="text-black-50 inr_price">₹'.$inr_price.'</del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
+                        <del class="text-black-50 inr_price">'.$inr_price.'</del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
                         <del class="text-black-50 usd_price">$'.$usd_price.'</del> <span class="text-danger fw-bold usd_price">$'.$usd_offer.'</span>
                 </div>
 
@@ -773,7 +775,7 @@ switch ($action) {
                 
                 <div class="price-tag text-start mb-2 px-1">
                     <i class="fa-solid fa-tag text-success"></i> 
-                        <del class="text-black-50 inr_price">₹'.$inr_price.'</del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
+                        <del class="text-black-50 inr_price">'.$inr_price.'</del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
                         <del class="text-black-50 usd_price">$'.$usd_price.'</del> <span class="text-danger fw-bold usd_price">$'.$usd_offer.'</span>
                 </div>
 
@@ -877,7 +879,7 @@ switch ($action) {
                 
                 <div class="price-tag text-start mb-2 px-1">
                     <i class="fa-solid fa-tag text-success"></i> 
-                        <del class="text-black-50 inr_price">₹'.$inr_price.'</del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
+                        <del class="text-black-50 inr_price">'.$inr_price.'</del> <span class="text-danger fw-bold inr_price">₹'.$inr_offer.'</span>
                         <del class="text-black-50 usd_price">$'.$usd_price.'</del> <span class="text-danger fw-bold usd_price">$'.$usd_offer.'</span>
                 </div>
 

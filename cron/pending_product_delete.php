@@ -1,5 +1,5 @@
 <?php
-include_once("../connection-pdo.php");
+include_once("/home/arindam.co.in/mscad/connection-pdo.php");
 $yesterday = date('Y-m-d', strtotime('-2 day'));
 
 $sql = "SELECT `id`, `user_id` FROM `products` WHERE `pending`=1 AND `drive_pending`=0 AND DATE_FORMAT(`created_at`,'%Y-%m-%d')<='$yesterday'";
@@ -16,7 +16,7 @@ foreach ($my_arr as $val) {
     foreach ($my_arr2 as $val) {
         $file_image = $val['file_image'];
 
-        $filePath = '../product_files_temp/' . $file_image;
+        $filePath = '/home/arindam.co.in/mscad/product_files_temp/' . $file_image;
         if (file_exists($filePath)) {
             unlink($filePath);
         }

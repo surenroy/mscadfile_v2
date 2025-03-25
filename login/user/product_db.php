@@ -380,10 +380,10 @@ switch ($action) {
             }
 
             $fileSize = $_FILES['file']['size'];
-            $maxFileSize = 300 * 1024;
+            $maxFileSize = 1024 * 1024;
 
             if ($fileSize > $maxFileSize) {
-                echo json_encode(['success' => false, 'message' => 'File size exceeds the 300 KB limit']);
+                echo json_encode(['success' => false, 'message' => 'File size exceeds the 1 mb limit']);
                 exit;
             }
 
