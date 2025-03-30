@@ -6,20 +6,6 @@ require 'vendor/autoload.php';
 
 
 
-
-//
-//$response=sendSMTPMail(
-//    toEmail: 'arindam.personal.25119@gmail.com',
-//    name: 'John Doe123',
-//    subject: 'OTP For Mscadfile.com',
-//    otp: 123456
-//);
-//
-//
-//echo $response;
-
-
-
 function sendSMTPMailWelcome($toEmail, $name){
     $mail = new PHPMailer(true); // Enable exceptions for error handling
 
