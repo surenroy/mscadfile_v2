@@ -9,7 +9,7 @@ require 'vendor/autoload.php';
 
 //
 //$response=sendSMTPMail(
-//    toEmail: 'surenroy@electrocompsystem.com',
+//    toEmail: 'arindam.personal.25119@gmail.com',
 //    name: 'John Doe123',
 //    subject: 'OTP For Mscadfile.com',
 //    otp: 123456
@@ -20,7 +20,7 @@ require 'vendor/autoload.php';
 
 
 
-function sendSMTPMail($toEmail, $name, $subject, $otp){
+function sendSMTPMailWelcome($toEmail, $name){
     $mail = new PHPMailer(true); // Enable exceptions for error handling
 
     try {
@@ -39,7 +39,7 @@ function sendSMTPMail($toEmail, $name, $subject, $otp){
 
         // Email content
         $mail->isHTML(true);
-        $mail->Subject = $subject;
+        $mail->Subject = "Welcome to MSCadFile.com!";
 
         $mailBody = '<!DOCTYPE html>
 <html>
@@ -107,8 +107,13 @@ function sendSMTPMail($toEmail, $name, $subject, $otp){
         </div>
         <div class="content">
             <p>Dear ' . htmlspecialchars($name) . ',</p>
-            <p>Your OTP is <strong>' . htmlspecialchars($otp) . '</strong></p>
-            <p>Thank you for using our service!</p>
+            <p>Thank you for signing up at MSCadFile.com. We’re excited to have you join our growing community of design professionals and enthusiasts!</p>
+            <p>At MSCadFile.com, you can easily access and share CAD files, explore new design ideas, and connect with fellow creators. To get started, simply log in to your account and explore the features we offer.</p>
+            <p>Should you have any questions or need assistance, feel free to reply to this email or visit our support page.</p>
+            <p>Thank you once again for joining MSCadFile.com. We’re here to help you succeed in your design projects!</p>
+            <p>Best regards,</p>
+            <p>The MSCadFile Team</p>
+            <p> <a href="https://www.mscadfile.com/"> www.MSCadFile.com </a> </p>
         </div>
         <div class="footer">
             <p>&copy; ' . date('Y') . ' MS Cad File. All rights reserved.</p>

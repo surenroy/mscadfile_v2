@@ -131,6 +131,7 @@ switch ($action) {
 
 
     case 'register_user':
+        include_once("smtpMail_welcome.php");
         $success = 0;
         $msg = $link = '';
 
@@ -290,9 +291,13 @@ switch ($action) {
                 }
             }
 
+            //SEND WELCOME MAIL
+            $response=sendSMTPMailWelcome($forget_email, 'User');
 
-            $my_arr = array('status' => 1, 'msg' => 'Registered Successful. Go to Login.');
+            $my_arr = array('status' => 1, 'msg' => 'Registered Successful. Go to Login.','mail'=>$response);
             echo json_encode($my_arr);
+
+
         }
         break;
 
